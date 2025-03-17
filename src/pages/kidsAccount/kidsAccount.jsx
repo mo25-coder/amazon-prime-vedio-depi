@@ -1,6 +1,6 @@
 import React from 'react'
 // import { useState } from 'react'
-import './assets/css/kidsAccount/kidsAccount.css'
+import '../../assets/css/kidsAccount/kidsAccount.css'
 
 function kidsAccount() {
 

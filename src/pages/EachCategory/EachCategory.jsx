@@ -1,6 +1,6 @@
 import React from 'react'
 // import { useState } from 'react'
-import './assets/css/EachCategory/EachCategory.css'
+import '../../assets/css/EachCategory/EachCategory.css'
 
 function EachCategory() {
 

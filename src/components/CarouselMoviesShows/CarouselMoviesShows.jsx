@@ -1,6 +1,6 @@
 import React from 'react'
 // import { useState } from 'react'
-import './assets/css/CarouselMoviesShows/CarouselMoviesShows.css'
+import '../../assets/css/CarouselMoviesShows/CarouselMoviesShows.css'
 
 function CarouselMoviesShows() {
 

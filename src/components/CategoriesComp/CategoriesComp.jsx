@@ -1,6 +1,6 @@
 import React from 'react'
 // import { useState } from 'react'
-import './assets/css/CategoriesComp/CategoriesComp.css'
+import '../../assets/css/CategoriesComp/CategoriesComp.css'
 
 function CategoriesComp() {
 
