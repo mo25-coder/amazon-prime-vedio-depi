@@ -2,20 +2,69 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import LogIn from "../pages/LogIn/LogIn";
 import SignUp from "../pages/SignUp/SignUp";
-
+import AccountAndSettings from "../pages/AccountAndSettings/AccountAndSettings"
+import CategoriesMain from "../pages/CategoriesMain/CategoriesMain"
+import EachCategory from "../pages/EachCategory/EachCategory"
+import Homepage from "../pages/Homepage/Homepage"
+import KidsAccount from "../pages/KidsAccount/KidsAccount"
+import ManageAccounts from "../pages/ManageAccounts/ManageAccounts"
+import Movies from "../pages/Movies/Movies"
+import MyStuff from "../pages/MyStuff/MyStuff"
+import ShowDetails from "../pages/ShowDetails/ShowDetails"
+import TvShows from "../pages/TvShows/TvShows"
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-      {
-        path: "LogIn",
-        element: <LogIn />,
-      },
-      {
-        path: "SignUp",
-        element: <SignUp />,
-      },
+        {
+            path: "LogIn",
+            element: <LogIn />,
+        },
+        {
+            path: "SignUp",
+            element: <SignUp />,
+        },
+        {
+            path: "AccountAndSettings",
+            element: <AccountAndSettings />,
+        },
+        {
+            path: "CategoriesMain",
+            element: <CategoriesMain />,
+        },
+        {
+            path: "EachCategory",
+            element: <EachCategory />,
+        },
+        {
+            path: "Homepage",
+            element: <Homepage />,
+        },
+        {
+            path: "KidsAccount",
+            element: <KidsAccount />,
+        },
+        {
+            path: "ManageAccounts",
+            element: <ManageAccounts />,
+        },
+        {
+            path: "Movies",
+            element: <Movies />,
+        },
+        {
+            path: "MyStuff",
+            element: <MyStuff />,
+        },
+        {
+            path: "ShowDetails",
+            element: <ShowDetails />,
+        },
+        {
+            path: "TvShows",
+            element: <TvShows />,
+        },
     ],
   },
 ]);
