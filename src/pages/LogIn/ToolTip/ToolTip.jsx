@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../../assets/css/LogIn/ToolTip/ToolTip.css"; // تأكد من استيراد ملف الـ CSS
+import "../../../assets/css/LogIn/ToolTip/ToolTip.css"; 
 
 const ToolTip = () => {
   const [visible, setVisible] = useState(false);
