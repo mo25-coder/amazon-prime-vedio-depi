@@ -84,9 +84,9 @@ const LogIn = () => {
                         <div className="new-to-amazon-txt">New to Amazon?</div>
                         <hr />
                     </div>
-                    <Link to="/signup" className="sign-up-btn">
+                    {/* <Link to="/signup" className="sign-up-btn">
                         Create your Amazon account
-                    </Link>
+                    </Link> */}
                 </div>
                 <LogInFooter/>
             </div>

@@ -34,7 +34,7 @@ function SignUp() {
                                 <input type="text" placeholder="Mobile number" className="input-field" />
                             </>
                             ) : (
-
+                            // إدخال البريد الإلكتروني
                             <input type="email" placeholder="Enter your email" className="input-field" />
                             )}
                         </div>

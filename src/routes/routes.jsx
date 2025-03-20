@@ -65,6 +65,10 @@ const router = createBrowserRouter([
             path: "TvShows",
             element: <TvShows />,
         },
+        {
+            path: "",
+            element: <App />,
+        }
     ],
   },
 ]);
