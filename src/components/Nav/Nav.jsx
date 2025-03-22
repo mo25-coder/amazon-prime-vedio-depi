@@ -1,14 +1,32 @@
-import "../src/assets/css/Nav/Nav.css";
+import "./Navbar.css";
 import { FaSearch, FaUserCircle } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
 import { SiPrimevideo } from "react-icons/si";
 
 import { useState } from "react";
+// import { useEffect } from "react";
+// import { useRef } from "react";
 
-export default function Nav() {
+export default function Navbar() {
   //   const [hidden, setHidden] = useState(true);
   const [userHidden, setUserHidden] = useState(true);
-  const [menuHidden, setMenuHidden] = useState(true);
+  //   const [menuHidden, setMenuHidden] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  //   let menuRef = useRef();
+
+  //   useEffect(() => {
+  //     let handler = (event) => {
+  //       if (!menuRef.current.contains(event.target)) {
+  //         setMenuOpen(true);
+  //       }
+  //     };
+  //     document.addEventListener("mousedown", handler);
+
+  //     return () => {
+  //       document.removeEventListener("mousedown", handler);
+  //     };
+  //   });
 
   return (
     <div className="navbarContainer">
@@ -53,18 +71,34 @@ export default function Nav() {
         </div>
 
         <div className="navbarMenuContainer">
-          <a href="/">
-            <CgMenuGridO
-              className="navbarHamIcon"
-              onMouseEnter={() => setMenuHidden(!menuHidden)}
-              onMouseLeave={() => setMenuHidden(!menuHidden)}
-            />
-          </a>
-          {menuHidden ? null : (
-            <div className="navbarDropMenu">
-              <div>Genre</div>
-              <ul>
-                <li>
+          {/* <a href="/"> */}
+          <CgMenuGridO
+            className="navbarHamIcon"
+            //   onMouseEnter={() => setMenuHidden(!menuHidden)}
+            //   onMouseLeave={() => setMenuHidden(!menuHidden)}
+            onClick={() => setMenuOpen(!menuOpen)}
+          />
+          {/* </a> */}
+          {/* {menuHidden ? null : ( */}
+          <div
+            // ref={menuRef}
+            className={`navbarDropMenu ${menuOpen ? "active" : "inactive"}`}
+          >
+            <div>Genre</div>
+            <ul>
+              <DropdownItem text={"Action"} />
+              <DropdownItem text={"Adventure"} />
+              <DropdownItem text={"Comedy"} />
+              <DropdownItem text={"Documentary"} />
+              <DropdownItem text={"Drama"} />
+              <DropdownItem text={"Horror"} />
+              <DropdownItem text={"Family"} />
+              <DropdownItem text={"Kids"} />
+              <DropdownItem text={"Mystery"} />
+              <DropdownItem text={"Thrillers"} />
+              <DropdownItem text={"Romance"} />
+              <DropdownItem text={"SciFi"} />
+              {/* <li>
                   <a href="/" className="navbar__link">
                     <span>Action and Adventure</span>
                   </a>
@@ -101,7 +135,7 @@ export default function Nav() {
                 </li>
                 <li>
                   <a href="/" className="navbar__link">
-                    <span>Mystry and Thrillers</span>
+                    <span>Mystery and Thrillers</span>
                   </a>
                 </li>
                 <li>
@@ -113,10 +147,10 @@ export default function Nav() {
                   <a href="/" className="navbar__link">
                     <span>SciFi</span>
                   </a>
-                </li>
-              </ul>
-            </div>
-          )}
+                </li> */}
+            </ul>
+          </div>
+          {/* )} */}
         </div>
 
         <div className="navbarUserContainer">
@@ -146,5 +180,15 @@ export default function Nav() {
         </div>
       </div>
     </div>
+  );
+}
+
+function DropdownItem(props) {
+  return (
+    <li>
+      <a href="/" className="navbar__link">
+        <span>{props.text}</span>
+      </a>
+    </li>
   );
 }
