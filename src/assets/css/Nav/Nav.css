@@ -1,0 +1,256 @@
+* {
+  box-sizing: border-box;
+}
+
+.navbarContainer {
+  background-color: hsla(0, 0%, 5%, 0.9);
+  color: white;
+  position: fixed;
+  height: 10vh;
+  width: 95vw;
+  left: 2%;
+  top: 0%;
+  right: 2%;
+  opacity: 0.95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  /* padding: 10px; */
+  /* border: 3px solid rgb(240, 128, 128); */
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  box-shadow: 1px 5px 15px -5px rgba(0, 0, 0, 0.6);
+}
+
+.navbarLogo {
+  /* border: 1px solid yellow; */
+  position: absolute;
+  left: 1px;
+  padding: 5px;
+  margin: 5px;
+}
+.navbarLogoIcon {
+  /* border: 1px solid red; */
+  font-size: 100px;
+  color: white;
+}
+.navbarLogoIcon:hover {
+  color: #ff9900;
+  transition: 0.5s;
+}
+
+/* .navbarLogoImg {
+  width: 300px;
+  object-fit: contain;
+  margin: 10px 5px;
+  padding: 5px;
+  box-shadow: inset 1px 1px 15px -5px rgba(0, 0, 0, 0.6);
+} */
+
+.navbarLstContainer {
+  /* border: 1px solid rgb(55, 0, 255); */
+  position: absolute;
+  left: 10%;
+}
+
+.navbarLst {
+  /* border: 1px solid rgb(9, 255, 0); */
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbarLstHome {
+  background: radial-gradient(
+    circle farthest-corner at 50% -50%,
+    hsla(0, 0%, 90%, 0.8) 10%,
+    hsla(0, 0%, 25%, 0.95) 60%
+  );
+}
+.navbarLstLink {
+  color: #ebebeb;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 5px;
+  padding: 10px 20px;
+  /* background-color: red; */
+  border-radius: 10px;
+}
+
+.navbarLstHome:hover {
+  background: none;
+}
+.navbarLstLink:hover {
+  color: #353535;
+  background-color: #ebebeb;
+  text-decoration: underline;
+  /* margin-left: 10px; */
+  border-radius: 10px;
+  text-shadow: 0 0 20px #000;
+}
+.navbarRightContainer {
+  /* border: 1px solid rgb(255, 0, 43); */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  right: -45%;
+  width: 150px;
+  margin-right: 50px;
+}
+.navbarSearchContainer {
+  border: 1px solid orange;
+  background-color: transparent;
+  position: absolute;
+  right: 9%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* padding: 5px 10px; */
+  /* margin: 10px 20px; */
+}
+
+.navSearch {
+  /* border: 1px solid pink; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: white;
+  /* font-size: 10px; */
+  cursor: pointer;
+
+  /* padding: 5px; */
+  /* margin: 5px; */
+}
+.searchIcon {
+  font-size: 20px;
+  margin: 1px;
+  padding: 1px;
+}
+.navSearch:hover {
+  color: #353535;
+  background-color: #ebebeb;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ebebeb;
+}
+
+/* .searchInput {
+   border: none;
+  border: 1px solid blue;
+  background-color: transparent;
+  color: white;
+  margin-right: 5px;
+  outline: none;
+} */
+
+.navbarMenuContainer {
+  /* border: 1px solid rgb(255, 0, 43); */
+  background-color: transparent;
+  /* position: absolute;
+  right: 5%; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbarMenuContainer a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbarHamIcon {
+  /* border: 1px solid pink; */
+  font-size: 40px;
+  margin: 1px;
+  padding: 1px; /* margin: 1px;
+  padding: 1px; */
+}
+.navbarHamIcon:hover {
+  color: #353535;
+  background-color: #ebebeb;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #ebebeb;
+}
+
+.navbarDropMenu {
+  position: absolute;
+  top: 50px;
+  right: -5px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 15px -5px rgba(0, 0, 0, 0.6);
+}
+.navbarDropMenu ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: auto;
+  gap: 10px;
+  padding: 10px;
+}
+
+.navbarUserContainer {
+  /* position: absolute;
+  right: 1%; */
+  /* border: 1px solid pink; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.navbarUserIcon {
+  font-size: 30px;
+  cursor: pointer;
+}
+.navbarUserIcon:hover {
+  color: #353535;
+  background-color: #ebebeb;
+  border: 1px solid #ebebeb;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #ebebeb;
+}
+
+.userMenu {
+  position: absolute;
+  top: 50px;
+  right: -5px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 15px -5px rgba(0, 0, 0, 0.6);
+}
+
+.userMenuLst {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: -20px;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+}
+.userMenuLstItem {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.userLstLink {
+  color: white;
+  text-decoration: none;
+  /* margin: 5px; */
+}
+
+.userLstLink:hover {
+  color: #ff9900;
+}
