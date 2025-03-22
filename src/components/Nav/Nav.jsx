@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import "..src/assets/css/Nav/Nav.css";
 import { FaSearch, FaUserCircle } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
 import { SiPrimevideo } from "react-icons/si";
