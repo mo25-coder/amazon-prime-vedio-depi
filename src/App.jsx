@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import "./assets/fontawesome-free-6.6.0-web/css/all.css";
 function App() {
-  let c = 0; // this is for testing applying changes to the repo, if you see it you could delete it :)
   return (
     <>
       <h1>Home page</h1>
