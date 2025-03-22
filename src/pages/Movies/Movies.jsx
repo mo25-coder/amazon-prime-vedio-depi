@@ -1,10 +1,8 @@
-import React from 'react'
-// import { useState } from 'react'
-import '../../assets/css/Movies/Movies.css'
-
 import React, { useState, useEffect } from 'react';
-
-
+import '../../assets/css/Movies.css';
+import '../../assets/css/CarouselMoviesShows.css';
+import CarouselMoviesShows from '../../components/CarouselMoviesShows/CarouselMoviesShows';
+import MovieCard from '../../components/MoviesShowsComponent/MoviesShowsComponent'; // Ensure this import exists
 
 function MoviesPage() {
   const [currentBanner, setCurrentBanner] = useState(0);
@@ -36,59 +34,27 @@ function MoviesPage() {
       items: [
         { title: 'The Matrix', image: 'https://picsum.photos/200/300?random=1' },
         { title: 'Mad Max: Fury Road', image: 'https://picsum.photos/200/300?random=2' },
-        { title: 'John Wick', image: 'https://picsum.photos/200/300?random=3' },
-        { title: 'Gladiator', image: 'https://picsum.photos/200/300?random=4' },
-        { title: 'Die Hard', image: 'https://picsum.photos/200/300?random=5' },
-      ],
-    },
-    {
-      title: 'Comedy Movies',
-      items: [
-        { title: 'Superbad', image: 'https://picsum.photos/200/300?random=6' },
-        { title: 'The Hangover', image: 'https://picsum.photos/200/300?random=7' },
-        { title: 'Deadpool', image: 'https://picsum.photos/200/300?random=8' },
-        { title: 'Zombieland', image: 'https://picsum.photos/200/300?random=9' },
       ],
     },
     {
       title: 'Drama Movies',
       items: [
-        { title: 'The Shawshank Redemption', image: 'https://picsum.photos/200/300?random=10' },
-        { title: 'Forrest Gump', image: 'https://picsum.photos/200/300?random=11' },
-        { title: 'The Godfather', image: 'https://picsum.photos/200/300?random=12' },
-        { title: '12 Years a Slave', image: 'https://picsum.photos/200/300?random=13' },
+        { title: 'The Godfather', image: 'https://picsum.photos/200/300?random=3' },
+        { title: 'Forrest Gump', image: 'https://picsum.photos/200/300?random=4' },
       ],
     },
     {
-      title: 'Recommended movies',
+      title: 'Indian Movies',
       items: [
-        { title: 'Sultan', image: 'https://picsum.photos/200/300?random=1' },
-        { title: 'Sultan', image: 'https://picsum.photos/200/300?random=1' },
-        { title: 'Sultan', image: 'https://picsum.photos/200/300?random=1' },
-        { title: 'Sultan', image: 'https://picsum.photos/200/300?random=1' },
-        { title: 'Sultan', image: 'https://picsum.photos/200/300?random=1' },
-        { title: 'Sultan', image: 'https://picsum.photos/200/300?random=1' },
-        { title: 'Sultan', image: 'https://picsum.photos/200/300?random=1' },
-        { title: 'Sultan', image: 'https://picsum.photos/200/300?random=1' },
-        { title: 'Red One', image: 'https://picsum.photos/200/300?random=2' },
-        { title: 'Jawan', image: 'https://picsum.photos/200/300?random=3' },
-        { title: 'Fast & Furious', image: 'https://picsum.photos/200/300?random=4' },
-      ],
-    },
-    
-    {
-      title: 'Popular movies with Arabic sub',
-      items: [
-        { title: 'Beast', image: 'https://picsum.photos/200/300?random=5' },
-        { title: 'Reacher', image: 'https://picsum.photos/200/300?random=6' },
-        { title: 'Dupahiya', image: 'https://picsum.photos/200/300?random=7' },
+        { title: '3 Idiots', image: 'https://picsum.photos/200/300?random=5' },
+        { title: 'Kabir Singh', image: 'https://picsum.photos/200/300?random=6' },
       ],
     },
     {
-      title: 'TV shows we think you\'ll like',
+      title: 'Arabic Movies',
       items: [
-        { title: 'Game of Thrones', image: 'https://picsum.photos/200/300?random=8' },
-        { title: 'Breaking Bad', image: 'https://picsum.photos/200/300?random=9' },
+        { title: 'Cairo Time', image: 'https://picsum.photos/200/300?random=7' },
+        { title: 'The Blue Elephant', image: 'https://picsum.photos/200/300?random=8' },
       ],
     },
   ];
@@ -96,73 +62,17 @@ function MoviesPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBanner((prev) => (prev + 1) % banners.length);
-    }, 5000); // Change banner every 5 seconds
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const handlePrev = () => {
-    setCurrentBanner((prev) => (prev - 1 + banners.length) % banners.length);
-  };
-
-  const handleNext = () => {
-    setCurrentBanner((prev) => (prev + 1) % banners.length);
-  };
-
   return (
-    <div className="main-page">
-      {/* Banner Carousel */}
-      <div className="CarouselMoviesShows">
-        <img src={banners[currentBanner].image} alt={banners[currentBanner].title} className="CarouselMoviesShows-image" />
-        <div className="CarouselMoviesShows-content">
-          <div
-            className="title-container"
-            onMouseEnter={() => {
-              setShowMainDescription(true);
-              setShowSecondaryDescription(true);
-            }}
-            onMouseLeave={() => {
-              setShowMainDescription(false);
-              setShowSecondaryDescription(false);
-            }}
-          >
-            <h1>{banners[currentBanner].title}</h1>
-            <p className="tagline">{banners[currentBanner].tagline}</p>
-            {showMainDescription && <p className="main-description">{banners[currentBanner].description}</p>}
-            <div className="CarouselMoviesShows-buttons">
-              <button className="add-to-list">+</button>
-              <button className="info">ⓘ</button>
-            </div>
-            <span className="included-with-prime">{banners[currentBanner].included}</span>
-          </div>
-          {showSecondaryDescription && (
-            <div className="description-container">
-              <p className="secondary-description">{banners[currentBanner].secondaryDescription}</p>
-            </div>
-          )}
-        </div>
-        <button className="arrow left-arrow" onClick={handlePrev}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <button className="arrow right-arrow" onClick={handleNext}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <div className="CarouselMoviesShows-dots">
-          {banners.map((_, index) => (
-            <span
-              key={index}
-              className={`dot ${currentBanner === index ? 'active' : ''}`}
-              onClick={() => setCurrentBanner(index)}
-            ></span>
-          ))}
-        </div>
-      </div>
+    <div className="movie-page">
+      {/* Banner Section */}
+      <CarouselMoviesShows />
 
-      {/* Content Rows */}
-    {movieCategories.map((category, index) => (
+      {/* Movie Categories */}
+      {movieCategories.map((category, index) => (
         <section key={index} className="content-section">
           <h2>{category.title}</h2>
           <div className="movie-list">
@@ -176,5 +86,4 @@ function MoviesPage() {
   );
 }
 
-
-export default Movies
+export default MoviesPage;
