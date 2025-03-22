@@ -1,5 +1,5 @@
 import { SiContentful, SiPrimevideo } from "react-icons/si";
-import "./Footer.css";
+import "../src/assets/css/Footer/Footer.css";
 import { FaFileExcel } from "react-icons/fa";
 
 export default function Footer() {
