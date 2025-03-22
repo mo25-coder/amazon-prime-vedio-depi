@@ -189,6 +189,19 @@
   border-radius: 10px;
   box-shadow: 1px 1px 15px -5px rgba(0, 0, 0, 0.6);
 }
+
+.navbarDropMenu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: 0.3 ease;
+}
+.navbarDropMenu.inactive {
+  opacity: 0;
+  visibility: invisible;
+  transform: translateY(-20px);
+  transition: 0.3 ease;
+}
 .navbarDropMenu ul {
   list-style-type: none;
   display: grid;
