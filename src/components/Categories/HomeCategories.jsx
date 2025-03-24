@@ -97,13 +97,13 @@ const categoriesArray = [
 ];
 
 function HomeCategories() {
-  return (
-    <div className="category-slider">
-      {categoriesArray.map((cat) => {
-        return <CategorySlider data={cat} key={cat.category} />;
-      })}
-    </div>
-  );
+  return categoriesArray.map((cat) => {
+    return (
+      <div className="category-slider" key={cat.category}>
+        <CategorySlider data={cat} />
+      </div>
+    );
+  });
 }
 
 export default HomeCategories;
