@@ -1,38 +1,44 @@
+import "../../assets/css/Categories/CategorySlider.css";
+import Button from "../UI/Button";
 import MoviePopup from "../MoviesShowsComponent/MoviePopup";
+import SliderNavigation from "./SliderNavigation";
+import SwiperSlider from "../UI/SwiperSlider";
+
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 import { ArrowRightIcon } from "@heroicons/react/16/solid";
-import "../../assets/css/Categories/CategorySlider.css";
-// import Swiper core and required modules
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import SliderNavigation from "./SliderNavigation";
+// import Swiper core and required modules
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 function CategorySlider({ data }) {
   const [isMouseEnter, setIsMouseEnter] = useState(false);
-
   const navigate = useNavigate();
   return (
     <>
       <header>
         <h1>{data.description}</h1>
-        <button onClick={() => navigate(`/Category/${data.category}`)}>
+        <Button
+          type="primary"
+          onClick={() => navigate(`/Category/${data.category}`)}
+        >
           See More <ArrowRightIcon width={30} />
-        </button>
+        </Button>
       </header>
-      <div
-        className="swiper-container"
+      <SwiperSlider
         onMouseEnter={() => setIsMouseEnter(true)}
         onMouseLeave={() => setIsMouseEnter(false)}
+        margin={"0"}
       >
         <Swiper
           modules={[Navigation]}
           spaceBetween={10}
-          slidesPerView={3}
+          slidesPerView={4}
           navigation={false}
           loop={true}
           slidesPerGroup={3}
@@ -44,7 +50,7 @@ function CategorySlider({ data }) {
           ))}
           <SliderNavigation isMouseEnter={isMouseEnter} />
         </Swiper>
-      </div>
+      </SwiperSlider>
     </>
   );
 }

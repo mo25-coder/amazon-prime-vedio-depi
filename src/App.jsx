@@ -6,7 +6,7 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import "./assets/fontawesome-free-6.6.0-web/css/all.css";
+import "./assets/css/App.css";
 function App() {
   return (
     <>
