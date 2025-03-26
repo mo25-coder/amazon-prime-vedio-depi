@@ -12,6 +12,8 @@ import ShowDetails from "../pages/ShowDetails/ShowDetails";
 import TvShows from "../pages/TvShows/TvShows";
 import Category from "../pages/Categories/Category";
 
+import "../assets/fontawesome-free-6.6.0-web/css/all.css";
+
 const router = createBrowserRouter([
   {
     path: "/",
