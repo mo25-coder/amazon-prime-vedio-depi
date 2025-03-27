@@ -8,7 +8,7 @@ const Container = styled.div`
   border-radius: 10px;
   position: relative;
   width: ${(props) => props.width || "100%"};
-  height: ${(props) => props.height || "50vh"};
+  height: ${(props) => props.height || "35vh"};
   margin: ${(props) => props.margin || "50px auto"};
 `;
 
