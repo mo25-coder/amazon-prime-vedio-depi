@@ -8,8 +8,8 @@ import {
 } from "@heroicons/react/16/solid";
 import { TextWrapper } from "../../utils/textWrapper";
 const StyledMoviePopup = styled.div`
-  height: 100%;
-  width: 100%;
+  height: ${(props) => (props.withinSlider ? "100%" : props.height)};
+  width: ${(props) => (props.withinSlider ? "100%" : props.width)};
   overflow: visible;
   position: relative;
   transform-style: preserve-3d;
@@ -87,10 +87,15 @@ const StyledMoviePopup = styled.div`
     cursor: pointer;
   }
 `;
-function MoviePopup({ movie }) {
+function MoviePopup({ movie, withinSlider = true, height, width }) {
   // Movie popup that will be shown within tha CategorySlider
   return (
-    <StyledMoviePopup className={`movie-popup`}>
+    <StyledMoviePopup
+      className={`movie-popup`}
+      withinSlider={withinSlider}
+      height={height}
+      width={width}
+    >
       <img src={movie.Poster} alt={`${movie.Title} cover photo`} />
       <div className={`movie-details`}>
         <h3>{movie.Title}</h3>
