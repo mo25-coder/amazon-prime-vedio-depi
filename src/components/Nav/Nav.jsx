@@ -6,6 +6,7 @@ import { SiPrimevideo } from "react-icons/si";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -57,6 +58,60 @@ export default function Navbar() {
     };
   }, []);
 
+  //   useEffect(() => {
+  //     let handler = (event) => {
+  //       if (!menuRef.current.contains(event.target)) {
+  //         setMenuOpen(true);
+  //       }
+  //     };
+  //     document.addEventListener("mousedown", handler);
+
+  //     return () => {
+  //       document.removeEventListener("mousedown", handler);
+  //     };import { Routes, Route, Link } from "react-router-dom";
+
+  //   });
+
+  /*
+  ================================
+//   const [isOpen, setIsOpen] = useState(false);
+//   const menuRef = useRef(null);
+//   const handleHover = () => {setIsOpen(true);};
+//   const handleClickOutside = (event) => {
+    // if (menuRef.current && !menuRef.current.contains(event.target)) {
+    //   setIsOpen(false);
+    // }
+//   };
+
+//   useEffect(() => {
+    // document.addEventListener("click", handleClickOutside);
+    // return () => {
+    //   document.removeEventListener("click", handleClickOutside);
+    // };
+//   }, []);
+
+  return (
+    <nav className="navbar">
+      <div className="brand">Brand</div>
+      <div className="menu-container" ref={menuRef}>
+        <button className="menu-button" onMouseEnter={handleHover}>
+          Menu
+        </button>
+        {isOpen && (
+          <ul className="dropdown">
+            <li>Option 1</li>
+            <li>Option 2</li>
+            <li>Option 3</li>
+          </ul>
+        )}
+      </div>
+    </nav>
+  );
+}
+
+export default App;
+=====================================
+  */
   return (
     <div className="navbarContainer">
       <div className="navbarLogo">
@@ -145,7 +200,10 @@ export default function Navbar() {
             >
               <div>My Stuff</div>
               <ul className="myStuffMenuLst">
-                <DropdownItem text={"All"} />
+                <DropdownItem
+                  text={"All"}
+                  //  to={"MyStuff"}
+                />
               </ul>
             </div>
           )}
@@ -177,9 +235,11 @@ export default function Navbar() {
 function DropdownItem(props) {
   return (
     <li>
-      <a href="#" className="navbar__link" target="_blank">
+      {/* <Link to={props.alink} className="nav-link"> */}
+      <a href="#" className="navbar__link">
         <span>{props.text}</span>
       </a>
+      {/* </Link> */}
     </li>
   );
 }
