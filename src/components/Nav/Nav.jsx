@@ -4,32 +4,58 @@ import { CgMenuGridO } from "react-icons/cg";
 import { SiPrimevideo } from "react-icons/si";
 
 import { useState } from "react";
-// import { useEffect } from "react";
-// import { useRef } from "react";
+import { useEffect } from "react";
+import { useRef } from "react";
 
 export default function Navbar() {
-  //   const [hidden, setHidden] = useState(true);
-  //   const [userHidden, setUserHidden] = useState(true);
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-
-  //   const [menuHidden, setMenuHidden] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [myStuffOpen, setMyStuffOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
-  //   let menuRef = useRef();
+  let menuRef = useRef();
+  let userRef = useRef();
+  let myStuffRef = useRef();
+  let searchRef = useRef();
 
-  //   useEffect(() => {
-  //     let handler = (event) => {
-  //       if (!menuRef.current.contains(event.target)) {
-  //         setMenuOpen(true);
-  //       }
-  //     };
-  //     document.addEventListener("mousedown", handler);
+  const handleHover = () => {
+    setIsOpen(true);
+  };
 
-  //     return () => {
-  //       document.removeEventListener("mousedown", handler);
-  //     };
-  //   });
+  const handleClickOutsideMenu = (event) => {
+    if (!menuRef.current.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  };
+
+  const handleClickOutsideUser = (event) => {
+    if (!userRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+  const handleClickOutsideMyStuff = (event) => {
+    if (!myStuffRef.current.contains(event.target)) {
+      setMyStuffOpen(false);
+    }
+  };
+  const handleClickOutsideSearch = (event) => {
+    if (!searchRef.current.contains(event.target)) {
+      setSearchOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutsideUser);
+    document.addEventListener("click", handleClickOutsideMenu);
+    document.addEventListener("click", handleClickOutsideMyStuff);
+    document.addEventListener("click", handleClickOutsideSearch);
+    return () => {
+      document.removeEventListener("click", handleClickOutsideUser);
+      document.removeEventListener("click", handleClickOutsideMenu);
+      document.removeEventListener("click", handleClickOutsideMyStuff);
+      document.removeEventListener("click", handleClickOutsideSearch);
+    };
+  }, []);
 
   return (
     <div className="navbarContainer">
@@ -43,17 +69,17 @@ export default function Navbar() {
       <div className="navbarLstContainer">
         <ul className="navbarLst">
           <li className=" navbarLstItem">
-            <a href="/" className="navbarLstLink navbarLstHome">
+            <a href="#" className="navbarLstLink navbarLstHome" target="_blank">
               Home
             </a>
           </li>
           <li className="navbarLstItem">
-            <a href="/" className="navbarLstLink">
+            <a href="#" className="navbarLstLink" target="_blank">
               Movies
             </a>
           </li>
           <li className="navbarLstItem">
-            <a href="/" className="navbarLstLink">
+            <a href="#" className="navbarLstLink" target="_blank">
               TV Shows
             </a>
           </li>
@@ -63,56 +89,60 @@ export default function Navbar() {
       {/* Search and User Section */}
       <div className="navbarRightContainer">
         {/* <div className="navSearchContainer"> */}
-        <div className="navSearch">
-          {/* <input type="text" placeholder="Search" className="searchInput" /> */}
+        <div className="navSearchContainer" ref={searchRef}>
           <FaSearch
             className="searchIcon"
-            //   onClick={(hidden) => setHidden(!hidden)}
+            onClick={() => setSearchOpen(!searchOpen)}
           />
-          {/* </div> */}
+          {searchOpen && (
+            <form action="" method="post">
+              <input
+                type="text"
+                placeholder="Search"
+                className="searchInput"
+              ></input>
+            </form>
+          )}
         </div>
-        <div className="navbarMenuContainer">
-          {/* <a href="/"> */}
+
+        <div className="navbarMenuContainer" ref={menuRef}>
           <CgMenuGridO
             className="navbarMenuIcon"
-            //   onMouseEnter={() => setMenuHidden(!menuHidden)}
-            //   onMouseLeave={() => setMenuHidden(!menuHidden)}
             onClick={() => setMenuOpen(!menuOpen)}
           />
-          {/* </a> */}
-          {/* {menuHidden ? null : ( */}
-          <div
-            // ref={menuRef}
-            className={`navbarDropMenu ${menuOpen ? "active" : "inactive"}`}
-          >
-            <div>Genre</div>
-            <ul>
-              <DropdownItem text={"Action"} />
-              <DropdownItem text={"Adventure"} />
-              <DropdownItem text={"Comedy"} />
-              <DropdownItem text={"Documentary"} />
-              <DropdownItem text={"Drama"} />
-              <DropdownItem text={"Horror"} />
-              <DropdownItem text={"Family"} />
-              <DropdownItem text={"Kids"} />
-              <DropdownItem text={"Mystery"} />
-              <DropdownItem text={"Thrillers"} />
-              <DropdownItem text={"Romance"} />
-              <DropdownItem text={"SciFi"} />
-            </ul>
-          </div>
-          {/* )} */}
+          {menuOpen && (
+            <div
+              className={`navbarDropMenu ${menuOpen ? "active" : "inactive"}`}
+              //   onMouseLeave={() => setMenuOpen(false)}
+            >
+              <div>Genre</div>
+              <ul>
+                <DropdownItem text={"Action"} />
+                <DropdownItem text={"Adventure"} />
+                <DropdownItem text={"Comedy"} />
+                <DropdownItem text={"Documentary"} />
+                <DropdownItem text={"Drama"} />
+                <DropdownItem text={"Horror"} />
+                <DropdownItem text={"Family"} />
+                <DropdownItem text={"Kids"} />
+                <DropdownItem text={"Mystery"} />
+                <DropdownItem text={"Thrillers"} />
+                <DropdownItem text={"Romance"} />
+                <DropdownItem text={"SciFi"} />
+              </ul>
+            </div>
+          )}
         </div>
-        <div
-          className="navbarMyStuff"
-          onClick={() => setMyStuffOpen(!myStuffOpen)}
-          //   onMouseEnter={() => setIsMenuOpen(true)}
-          //   onMouseLeave={() => setIsMenuOpen(false)}
-        >
-          <FaBookmark className="myStuffIcon" />
-
+        <div className="navbarMyStuff" ref={myStuffRef}>
+          <FaBookmark
+            className="myStuffIcon"
+            onClick={() => setMyStuffOpen(!myStuffOpen)}
+          />
           {myStuffOpen && (
-            <div className="myStuffMenu">
+            <div
+              className="myStuffMenu"
+              //   onMouseLeave={() => setMyStuffOpen(false)}
+            >
               <div>My Stuff</div>
               <ul className="myStuffMenuLst">
                 <DropdownItem text={"All"} />
@@ -120,36 +150,18 @@ export default function Navbar() {
             </div>
           )}
         </div>
+
         <div
           className="navbarUserContainer"
-          onMouseEnter={() => setIsUserMenuOpen(true)}
-          onMouseLeave={() => setIsUserMenuOpen(false)}
+          ref={userRef}
+          onMouseEnter={handleHover}
         >
-          <FaUserCircle
-            className="navbarUserIcon"
-            // onMouseEnter={() => setUserHidden(false)}
-            // onMouseLeave={() => setUserHidden(true)}
-          />
-
-          {/* User Dropdown Menu */}
-          {/* {userHidden ? null : (
-            <div className="userMenu">
-              <ul className="userMenuLst">
-                <li className="userMenuLstItem">
-                  <a href="/" className="userLstLink">
-                    <span>Account</span>
-                  </a>
-                </li>
-                <li className="userMenuLstItem">
-                  <a href="/" className="userLstLink">
-                    <span>Sign Out</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          )} */}
-          {isUserMenuOpen && (
-            <div className="userMenu">
+          <FaUserCircle className="navbarUserIcon" />
+          {isOpen && (
+            <div
+              className="userMenu"
+              // onMouseLeave={() => setIsOpen(false)}
+            >
               <ul className="userMenuLst">
                 <DropdownItem text={"Account"} />
                 <DropdownItem text={"Sign Out"} />
@@ -165,7 +177,7 @@ export default function Navbar() {
 function DropdownItem(props) {
   return (
     <li>
-      <a href="/" className="navbar__link">
+      <a href="#" className="navbar__link" target="_blank">
         <span>{props.text}</span>
       </a>
     </li>
