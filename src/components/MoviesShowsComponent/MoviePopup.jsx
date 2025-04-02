@@ -7,9 +7,11 @@ import {
   PlusIcon,
 } from "@heroicons/react/16/solid";
 import { TextWrapper } from "../../utils/textWrapper";
+import { useElementPosition } from "../../Hooks/useElementPosition";
+import { useRef } from "react";
 const StyledMoviePopup = styled.div`
-  height: ${(props) => (props.withinSlider ? "100%" : props.height)};
-  width: ${(props) => (props.withinSlider ? "100%" : props.width)};
+  height: ${(props) => props.withinslider === "true" && "100%"};
+  width: ${(props) => props.withinslider === "true" && "100%"};
   overflow: visible;
   position: relative;
   transform-style: preserve-3d;
@@ -34,11 +36,17 @@ const StyledMoviePopup = styled.div`
       padding: 8px 0;
       border-radius: var(--border-radius);
     }
-    .action-btns * {
-      border-radius: 100%;
-      background-color: #bcbaba;
-      padding: 10px;
+    .action-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      * {
+        border-radius: 100%;
+        background-color: #bcbaba;
+        padding: 10px;
+      }
     }
+
     span {
       display: flex;
       justify-content: center;
@@ -71,10 +79,15 @@ const StyledMoviePopup = styled.div`
   &:hover {
     z-index: 999;
     isolation: isolate;
-    transform: translateX(-23px) scale(1.2);
-    img {
-      border-radius: var(--border-radius) var(--border-radius) 0 0;
-    }
+    transform: ${(props) =>
+      props.position < 9
+        ? "scale(1.1) translateX(7px)"
+        : props.position < 15
+        ? "translateX(20px) scale(1.2)"
+        : props.position > 710 && props.position < 1060
+        ? "translateX(-10px) scale(1.2)"
+        : "scale(1.2) translateX(0px)"};
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
     transition: 0.2s ease;
     & .movie-details {
       display: flex;
@@ -87,31 +100,37 @@ const StyledMoviePopup = styled.div`
     cursor: pointer;
   }
 `;
-function MoviePopup({ movie, withinSlider = true, height, width }) {
+function MoviePopup({ movie, withinslider = "true", width, height }) {
+  const movieRef = useRef(null);
+  const { positionX, getElementPosition } = useElementPosition();
+
   // Movie popup that will be shown within tha CategorySlider
   return (
     <StyledMoviePopup
-      className={`movie-popup`}
-      withinSlider={withinSlider}
+      className={`movie-popup ${width} ${withinslider !== "true" && height} `}
+      withinslider={withinslider}
       height={height}
-      width={width}
+      ref={movieRef}
+      onMouseEnter={() => getElementPosition(movieRef.current)}
+      position={positionX}
     >
       <img src={movie.Poster} alt={`${movie.Title} cover photo`} />
       <div className={`movie-details`}>
-        <h3>{movie.Title}</h3>
+        <h3 className="text-[15px] lg:text-[18px]">{movie.Title}</h3>
         <div className="play-btn">
           <PlayIcon width={25} /> Play
         </div>
         <div className="action-btns">
           <PlusIcon width={40} /> <NoSymbolIcon width={40} />
         </div>
-        <span>
-          <CheckIcon width={15} /> included with prime
+        <span className=" text-[10px] md:text-[16px]">
+          <CheckIcon className="w-3 md:w-4" /> included with prime
         </span>
-        <div className="info">
-          {movie.Year} 1h 35 min <span>+16</span>
+        <div className="info text-[13px]">
+          <p className="hidden md:block">{movie.Year}</p> 1h 35 min
+          <span>+16</span>
         </div>
-        <p>
+        <p className="hidden md:block">
           {TextWrapper(`
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum
           officia velit dicta at doloribus minima adipisci, a suscipit

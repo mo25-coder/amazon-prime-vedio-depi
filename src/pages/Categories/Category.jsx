@@ -102,7 +102,6 @@ const Main = styled.main`
   display: flex;
   flex-wrap: wrap;
   gap: 20px 10px;
-  align-items: center;
 `;
 function Category() {
   const { categoryType } = useParams();
@@ -112,14 +111,14 @@ function Category() {
         <h2>{categoryType}</h2>
         <DropList listItems={["movies", "Series"]} />
       </header>
-      <Main>
+      <Main className="justify-center md:justify-start">
         {movies.map((mv) => (
           <MoviePopup
             movie={mv}
             key={mv.imdbID}
-            withinSlider={false}
-            width={"24%"}
-            height={"35vh"}
+            withinslider={false}
+            width="w-[45%] md:w-[30%] lg:w-[24%]"
+            height="h-[35vh] lg:h-[32vh]"
           />
         ))}
       </Main>
