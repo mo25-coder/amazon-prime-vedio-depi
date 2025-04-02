@@ -24,7 +24,8 @@ const StyledDropList = styled.div`
   }
   svg {
     transition: all 0.3s ease-in-out;
-    transform: ${(props) => (props.isClicked ? "rotate(180deg)" : "none")};
+    transform: ${(props) =>
+      props.isclicked === "true" ? "rotate(180deg)" : "none"};
     margin-left: 10px;
   }
 `;
@@ -35,7 +36,7 @@ const UL = styled.ul`
   padding: 5px 0;
   margin: 0;
   background-color: #eeecec;
-  display: ${(props) => (props.isClicked ? "flex" : "none")};
+  display: ${(props) => (props.isclicked === "true" ? "flex" : "none")};
   flex-direction: column;
   gap: 5px;
   z-index: 100;
@@ -65,12 +66,12 @@ function DropList({ bgColor, listItems }) {
     <Container>
       <StyledDropList
         bgColor={bgColor}
-        isClicked={isClicked}
+        isclicked={toString(isClicked)}
         onClick={() => setIsClicked((s) => !s)}
       >
         Content Type <ChevronDownIcon width={40} />
       </StyledDropList>
-      <UL isClicked={isClicked}>
+      <UL isclicked={toString(isClicked)}>
         {listItems.map((li) => {
           return (
             <li key={li}>

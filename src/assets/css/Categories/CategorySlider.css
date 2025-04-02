@@ -3,3 +3,7 @@ header {
   gap: 1rem;
   align-items: center;
 }
+
+.swiper-slide:hover {
+  z-index: 999;
+}

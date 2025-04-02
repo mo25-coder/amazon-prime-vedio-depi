@@ -15,10 +15,13 @@ import "swiper/css/navigation";
 // import Swiper core and required modules
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useElementPosition } from "../../Hooks/useElementPosition";
 
 function CategorySlider({ data }) {
   const [isMouseEnter, setIsMouseEnter] = useState(false);
   const navigate = useNavigate();
+  const { screenWidth } = useElementPosition();
+
   return (
     <>
       <header>
@@ -38,7 +41,13 @@ function CategorySlider({ data }) {
         <Swiper
           modules={[Navigation]}
           spaceBetween={10}
-          slidesPerView={4}
+          slidesPerView={
+            screenWidth > 849
+              ? 4
+              : screenWidth <= 850 && screenWidth > 450
+              ? 3
+              : 1
+          }
           navigation={false}
           loop={true}
           slidesPerGroup={3}
