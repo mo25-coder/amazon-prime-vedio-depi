@@ -1,10 +1,11 @@
-import React from 'react'
-// import { useState } from 'react'
-import '../../assets/css/ManageAccounts/ManageAccounts.css'
-
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../../assets/css/ManageAccounts/ManageAccounts.css';
 
 
 const ManageAccounts = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="profile-selection-container">
       {/* Header Section */}
@@ -14,16 +15,16 @@ const ManageAccounts = () => {
       <div className="main-content">
         <h1>Who's watching?</h1>
         <div className="profiles">
-          {/* Profile 1 */}
-          <div className="profile">
+          {/* Adult Profile */}
+          <div className="profile" onClick={() => navigate('/Homepage')}>
             <div className="avatar" style={{ backgroundColor: '#00A8E1' }}>
               <div className="default-avatar"></div>
             </div>
-            <p>abdelrhman...</p>
+            <p>Adult</p>
           </div>
 
-          {/* Profile 2 (Kids) */}
-          <div className="profile">
+          {/* Kids Profile */}
+          <div className="profile" onClick={() => navigate('/kidsAccount')}>
             <div className="avatar kids">
               <div className="kids-avatar">😊</div>
             </div>
@@ -31,7 +32,7 @@ const ManageAccounts = () => {
           </div>
 
           {/* Add New Profile */}
-          <div className="profile">
+          <div className="profile" onClick={() => navigate('/addProfile')}>
             <div className="avatar add-new">
               <span>+</span>
             </div>
