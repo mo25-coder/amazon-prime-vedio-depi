@@ -1,92 +1,39 @@
-/* General container styling */
-.kids-account-container {
-    background-color: #0f171e;
-    min-height: 100vh;
-    color: white;
-    font-family: Arial, sans-serif;
-    padding: 30px 20px;
-  }
-  
-  /* Header styling */
-  .kids-header {
-    margin-right: 71%;
-    margin-bottom: 30px;
-  }
-  
-  .kids-header h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: white;
-    margin: 0;
-  }
-  
-  /* Main content styling */
-  main {
-    max-width: 1400px; /* Increased to better match the image layout */
-    margin: 0 auto;
-  }
-  
-  /* Category section styling */
-  .category-section {
-    margin-bottom: 50px;
-  }
-  
-  /* Category header (title + subtitle) */
-  .category-header {
-    margin-bottom: 20px;
-    text-align: left; /* Align the title and subtitle to the left */
-  }
-  
-  .category-section h2 {
-    font-size: 28px; /* Slightly larger for emphasis */
-    font-weight: 600;
-    color: white;
-    margin: 0 0 8px 0;
-  }
-  
-  .category-subtitle {
-    font-size: 16px;
-    color: #d1d4dc; /* Lighter grey for the subtitle */
-    margin: 0;
-  }
-  
-  /* Thumbnail grid styling */
-  .thumbnail-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Slightly larger thumbnails */
-    gap: 20px; /* Increased gap for better spacing */
-  }
-  
-  /* Individual thumbnail styling */
-  .thumbnail {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
-    border-radius: 10px; /* Slightly larger border-radius for a softer look */
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Thumbnail image styling */
-  .thumbnail-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the image fills the thumbnail */
-    border: 1px solid #3a3f47; /* Subtle border to match the design */
-    transition: opacity 0.3s ease; /* Smooth transition for image loading */
-    opacity: 1;
-  }
-  
-  .thumbnail-image.loading {
-    opacity: 0; /* Fade in effect when the image loads */
-  }
-  
-  /* Hover effect for thumbnails */
-  .thumbnail:hover {
-    transform: scale(1.08); /* Slightly larger scale for a more noticeable effect */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* More pronounced glow */
-  }
+/* Global Styles */
+body {
+  background-color: #0e0e10; /* Deep dark background */
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container */
+.container {
+  padding: 2rem;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Row of movie cards */
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* Hide scrollbar for better look */
+.row::-webkit-scrollbar {
+  display: none;
+}
+
+.row {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
