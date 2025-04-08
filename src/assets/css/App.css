@@ -65,25 +65,32 @@ NOTE: absolutly this will be done by code, we will not
   width: fit-content;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
-  top: 20%;
+  top: 10%;
   cursor: pointer;
   transition: 0.5s ease;
   z-index: 999;
   opacity: 0;
+  width: fit-content;
+  height: 80%;
+  margin: auto;
 }
 .button-next.active,
 .button-prev.active {
   opacity: 100;
 }
 .button-next {
-  padding: 50px 15px 50px 5px;
-
+  padding: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   right: -10px;
   border-radius: 10px 0px 0px 10px;
 }
 .button-prev {
-  padding: 50px 5px 50px 15px;
-
+  padding: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 0 10px 10px 0;
 
   left: -10px;
