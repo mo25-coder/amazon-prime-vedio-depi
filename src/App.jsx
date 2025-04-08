@@ -11,8 +11,8 @@ function App() {
   return (
     <>
       <h1>Home page</h1>
-      <Link to="/LogIn">Log In</Link>
-      <Link to="/SignUp">Sign Up</Link>
+      {/* <Link to="/LogIn">Log In</Link>
+      <Link to="/SignUp">Sign Up</Link> */}
       <Outlet />
     </>
   );
