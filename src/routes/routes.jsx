@@ -6,13 +6,12 @@ import AccountAndSettings from "../pages/AccountAndSettings/AccountAndSettings";
 import Homepage from "../pages/Homepage/Homepage";
 import KidsAccount from "../pages/KidsAccount/KidsAccount";
 import ManageAccounts from "../pages/ManageAccounts/ManageAccounts";
-import Movies from "../pages/Movies/Movies";
 import MyStuff from "../pages/MyStuff/MyStuff";
 import ShowDetails from "../pages/ShowDetails/ShowDetails";
-import TvShows from "../pages/TvShows/TvShows";
 import Category from "../pages/Categories/Category";
 
 import "../assets/fontawesome-free-6.6.0-web/css/all.css";
+import Media from "../pages/Media/Media";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +34,10 @@ const router = createBrowserRouter([
         path: "Category/:categoryType",
         element: <Category />,
       },
-
+      {
+        path: "media/:mediaShow",
+        element: <Media />,
+      },
       {
         path: "Homepage",
         element: <Homepage />,
@@ -49,20 +51,12 @@ const router = createBrowserRouter([
         element: <ManageAccounts />,
       },
       {
-        path: "Movies",
-        element: <Movies />,
-      },
-      {
         path: "MyStuff",
         element: <MyStuff />,
       },
       {
         path: "ShowDetails",
         element: <ShowDetails />,
-      },
-      {
-        path: "TvShows",
-        element: <TvShows />,
       },
       {
         path: "",

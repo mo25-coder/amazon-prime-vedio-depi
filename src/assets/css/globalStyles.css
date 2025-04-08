@@ -44,13 +44,16 @@
 
 /* 
 https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png
-by changing the number of the last part /adult-1.png
+&&
+https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/kid-1.png
+
+by changing the number of the last part /adult-1.png or /kid-1.png
 from 1 to 10 you can get different user profile colors :),
 you could try it on you browser search bar
-
 NOTE: absolutly this will be done by code, we will not  
       manually hard coded the all 10 posaible photos  
 */
+
 .profile-icon-container {
   border-radius: 100%;
   padding: 5px;
