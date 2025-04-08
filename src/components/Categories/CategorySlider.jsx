@@ -25,7 +25,7 @@ function CategorySlider({ data }) {
   return (
     <>
       <header>
-        <h1>{data.description}</h1>
+        <h1 className="font-bold text-xl">{data.description}</h1>
         <Button
           type="primary"
           onClick={() => navigate(`/Category/${data.category}`)}
