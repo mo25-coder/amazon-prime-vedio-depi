@@ -1,128 +1,97 @@
-/* Global Rules Start */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Outfit", sans-serif;
-    font-optical-sizing: auto;
-    width: 100%;
-    scroll-behavior: smooth;
-    position: relative; 
-}
-
-body {
-    width: 100%;
-    background-color: #f3f4f6;
-}
-hr {
-    background-color: #ededed;
-    border: none;
-    height: 3px;
-}
-
-
 .container {
-
-    background-color: #f3f4f6;
-    height: 100%;
-    width: 85%;
-    margin: auto;
-    /* border: 3px #ededed solid; */
-    z-index: -1;
-
+  background-color: #f3f4f6;
+  height: 100%;
+  width: 85%;
+  margin: auto;
+  /* border: 3px #ededed solid; */
+  z-index: -1;
 }
 
 .header {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-weight: bolder;
-    font-size: large;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: bolder;
+  font-size: large;
 }
 
 .container .list {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .container .list ul {
-    display: flex;
-    list-style-type: none;
+  display: flex;
+  list-style-type: none;
 }
 
 .container .list ul a {
-    text-decoration: none;
-    color: #87888d;
-    margin-bottom: 20px;
-    padding-bottom: 3px;
+  text-decoration: none;
+  color: #87888d;
+  margin-bottom: 20px;
+  padding-bottom: 3px;
 }
 
 .container .list ul a:active,
 .active {
-    color: black;
-    text-decoration: underline;
-    padding-bottom: 3px;
+  color: black;
+  text-decoration: underline;
+  padding-bottom: 3px;
 }
 
 .container .list ul .set {
-    color: black;
-    text-decoration: underline;
-
+  color: black;
+  text-decoration: underline;
 }
 
 .wc1,
 .wc2 {
-    background-color: white;
-
+  background-color: white;
 }
 
 .wc1 .wc1-1,
 .wc2-1,
 .wc2-21 {
-    padding: 15px 30px;
+  padding: 15px 30px;
 }
 
 .wc1 .wc1-2 h4,
 .wc2 h4 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .wc1 .wc1-2,
 .wc2-2,
 .wc2-2-2 {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-    padding-left: 30px;
-    padding-right: 15px;
-    padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 15px;
+  padding-bottom: 20px;
 }
 
 .wc2-2-2 p {
-    max-width: 60%;
+  max-width: 60%;
 }
 
 .wc2-2 p {
-    max-width: fit-content;
+  max-width: fit-content;
 }
 
 button {
-    width: 220px;
-    height: 50px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  width: 220px;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 button span {
-    color: black;
-    font-weight: bold;
-    padding-left: 15px;
-
+  color: black;
+  font-weight: bold;
+  padding-left: 15px;
 }
 
-
-
-
 .wc2-2-2 button {
-    max-width: 300px;
+  max-width: 300px;
 }
