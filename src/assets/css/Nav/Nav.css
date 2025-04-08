@@ -3,14 +3,14 @@
 }
 
 .navbarContainer {
-  background-color: #333;
+  z-index: 9999;
+  background-color: var(--bg-color-lighter);
   color: white;
   position: fixed;
   height: 10vh;
-  width: 95vw;
-  left: 2%;
+  width: 99vw;
+  margin: auto;
   top: 0%;
-  right: 2%;
   opacity: 0.95;
   display: flex;
   align-items: center;
@@ -61,18 +61,21 @@
 }
 
 .navbarLstHome {
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle farthest-corner at 50% -50%,
     hsla(0, 0%, 90%, 0.8) 10%,
     hsla(0, 0%, 25%, 0.95) 60%
-  );
+  ); */
+
+  background: var(--primary-btn-background);
 }
 .navbarLstLink {
-  color: #ebebeb;
+  color: #fff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: var(--font-size-primary);
+  font-weight: 600;
   margin-left: 5px;
-  padding: 10px 20px;
+  padding: 15px 20px;
   border-radius: 10px;
 }
 
@@ -80,12 +83,9 @@
   background: none;
 }
 .navbarLstLink:hover {
-  color: #353535;
-  background-color: #ebebeb;
-  text-decoration: underline;
-  /* margin-left: 10px; */
+  color: var(--primary-bg-color);
+  background-color: var(--bg-hover-color);
   border-radius: 10px;
-  text-shadow: 0 0 20px #000;
 }
 .navbarRightContainer {
   /* border: 1px solid greenyellow; */
@@ -104,7 +104,6 @@
 .navbarMyStuff {
   color: white;
   cursor: pointer;
-  border: 1px solid pink;
   background-color: transparent;
   border-radius: 50%;
   display: flex;

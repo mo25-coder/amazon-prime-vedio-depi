@@ -1,4 +1,4 @@
-import "..src/assets/css/Nav/Nav.css";
+import "../../assets/css/Nav/Nav.css";
 import { FaSearch, FaUserCircle, FaBookmark } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
 import { SiPrimevideo } from "react-icons/si";
@@ -6,7 +6,7 @@ import { SiPrimevideo } from "react-icons/si";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+// import { Routes, Route, Link } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
