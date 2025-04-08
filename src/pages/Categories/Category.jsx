@@ -109,7 +109,10 @@ function Category() {
     <StyledCategoryContainer>
       <header>
         <h2>{categoryType}</h2>
-        <DropList listItems={["movies", "Series"]} />
+        <DropList
+          listItems={["movies", "Series"]}
+          bgcolor={"var(--bg-color-lighter)"}
+        />
       </header>
       <Main className="justify-center md:justify-start">
         {movies.map((mv) => (

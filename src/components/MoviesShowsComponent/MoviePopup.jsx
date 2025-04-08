@@ -22,28 +22,39 @@ const StyledMoviePopup = styled.div`
     flex-direction: column;
     align-items: start;
     gap: 10px;
-    background-color: #eceaea;
-    border-radius: 0 0 var(--border-radius);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
     margin-top: -10px;
     padding: 10px 15px;
+    box-shadow: 10 0 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--primary-bg-color);
     .play-btn {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 5px;
-      background-color: #bcbaba;
+      background-color: var(--bg-color-lighter);
       padding: 8px 0;
       border-radius: var(--border-radius);
+      cursor: pointer;
+    }
+    .play-btn:hover {
+      background-color: #fff;
+      color: var(--bg-color-lighter);
     }
     .action-btns {
       display: flex;
       gap: 10px;
       justify-content: center;
+      :hover {
+        background-color: #fff;
+        color: var(--bg-color-lighter);
+      }
       * {
         border-radius: 100%;
-        background-color: #bcbaba;
+        background-color: var(--bg-color-lighter);
         padding: 10px;
+        cursor: pointer;
       }
     }
 
@@ -66,9 +77,9 @@ const StyledMoviePopup = styled.div`
       align-items: center;
       gap: 10px;
       span {
-        background-color: #bcbaba;
+        background-color: var(--bg-color-lighter);
         border-radius: var(--border-radius);
-        padding: 4px;
+        padding: 4px 6px;
         font-weight: 600;
       }
     }
@@ -116,7 +127,7 @@ function MoviePopup({ movie, withinslider = "true", width, height }) {
     >
       <img src={movie.Poster} alt={`${movie.Title} cover photo`} />
       <div className={`movie-details`}>
-        <h3 className="text-[15px] lg:text-[18px]">{movie.Title}</h3>
+        <h3 className="text-[15px] lg:text-[18px] font-bold">{movie.Title}</h3>
         <div className="play-btn">
           <PlayIcon width={25} /> Play
         </div>

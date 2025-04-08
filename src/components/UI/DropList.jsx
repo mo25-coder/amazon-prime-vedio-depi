@@ -15,12 +15,13 @@ const StyledDropList = styled.div`
   padding: 5px 15px;
   border-radius: ${(props) =>
     props.isClicked ? "8px 8px 0 0" : "var(--border-radius)"};
-  background-color: ${(props) => props.bgColor || "#eeecec"};
+  background-color: ${(props) => props.bgcolor || "#eeecec"};
   position: relative;
   cursor: pointer;
   font-size: 1.2rem;
   &:hover {
-    background-color: #d4d4d4;
+    background-color: #fff;
+    color: ${(props) => props.bgcolor};
   }
   svg {
     transition: all 0.3s ease-in-out;
@@ -35,7 +36,7 @@ const UL = styled.ul`
   width: 100%;
   padding: 5px 0;
   margin: 0;
-  background-color: #eeecec;
+  background-color: var(--primary-bg-color);
   display: ${(props) => (props.isclicked === "true" ? "flex" : "none")};
   flex-direction: column;
   gap: 5px;
@@ -49,7 +50,8 @@ const UL = styled.ul`
     gap: 10px;
     padding: 5px;
     &:hover {
-      background-color: #d4d4d4;
+      background-color: #fff;
+      color: var(--bg-color-lighter);
     }
     input {
       width: 20px;
@@ -60,18 +62,18 @@ const UL = styled.ul`
   }
 `;
 
-function DropList({ bgColor, listItems }) {
+function DropList({ bgcolor, listItems }) {
   const [isClicked, setIsClicked] = useState(false);
   return (
     <Container>
       <StyledDropList
-        bgColor={bgColor}
-        isclicked={toString(isClicked)}
+        bgcolor={bgcolor}
+        isclicked={isClicked ? "true" : "false"}
         onClick={() => setIsClicked((s) => !s)}
       >
         Content Type <ChevronDownIcon width={40} />
       </StyledDropList>
-      <UL isclicked={toString(isClicked)}>
+      <UL isclicked={isClicked ? "true" : "false"}>
         {listItems.map((li) => {
           return (
             <li key={li}>
