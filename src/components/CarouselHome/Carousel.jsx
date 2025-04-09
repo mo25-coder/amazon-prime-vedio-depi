@@ -12,7 +12,8 @@ import {
   Check, // add this
 
 } from "lucide-react";
-
+import { useState } from "react"; // add this at the top
+import { Volume2, VolumeX } from "lucide-react"; // add icons
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -25,7 +26,7 @@ const slides = [
       "https://avodmp4s3ww-a.akamaihd.net/ww_iad/48b2/c65b/d0bf/4c8e-ac06-d55f6efa242b/16d91ce8-e350-4372-9351-6380fa3f09c4_video_480p_900kbps_audio_aaclc_128kbps.mp4",
     title: "The Big Country",
     description:
-      "Burl Ives earned a Best Supporting Actor Oscar for his portrayal of a family patriarch involved in a bitter land feud in this explosive western drama that also features a sumptuous musical score.",
+      "By day, they’re invisible—valets, hostesses, and bartenders at a luxury hotel. By night, they’re the Carjackers, a crew of skilled drivers who track and rob wealthy clients on the road. As they plan their ultimate heist, the hotel director hires a ruthless hitman, to stop them at all costs. With danger closing in, can Nora, Zoe, Steve, and Prestance pull off their biggest score yet?",
     year: 1958,
     rating: "7+",
     duration: "2 h 46 min",
@@ -39,7 +40,7 @@ const slides = [
       "https://s3-iad-ww.cf.videorolls.row.aiv-cdn.net/3525/91c3/58e3/447e-99cd-eb3b56e51e00/ee48e1ea-7bc5-48cf-a04b-cdbfdea16bbe_video_480p_900kbps_audio_aaclc_128kbps.mp4",
     title: "Blockbusters",
     description:
-      "A thrilling blockbuster experience featuring stunning visuals and heart-pounding action sequences.",
+      "Murdered bounty hunter Hub Halloran is resurrected by the Devil to trap and send back demons that have escaped from the prison of Hell. By chasing down those demons with the help and hinderance of his estranged family, Hub learns how his own sins got his soul condemned -- which pushes him to seek a second chance at life, love, and country music.",
     year: 2022,
     rating: "16+",
     duration: "2 h 12 min",
@@ -53,7 +54,7 @@ const slides = [
       "https://s3-iad-2.cf.trailer.row.aiv-cdn.net/ed34/c69f/652d/4425-bf9c-634dc25792ab/72b64760-5e06-4d17-bb44-449f018e016c_video_900_audio_aaclc_128.mp4",
     title: "Trending Now",
     description:
-      "Explore what's trending today with top picks curated just for you.",
+      "Murdered bounty hunter Hub Halloran is resurrected by the Devil to trap and send back demons that have escaped from the prison of Hell. By chasing down those demons with the help and hinderance of his estranged family, Hub learns how his own sins got his soul condemned -- which pushes him to seek a second chance at life, love, and country music.",
     year: 2023,
     rating: "13+",
     duration: "1 h 58 min",
@@ -63,8 +64,11 @@ const slides = [
 ];
 
 export default function Carousel() {
+  const [isMuted, setIsMuted] = useState(true); // 🔇 default muted
+
+  const toggleMute = () => setIsMuted(!isMuted);
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen ">
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
         autoplay={{ delay: 10000, disableOnInteraction: false }}
@@ -78,15 +82,21 @@ export default function Carousel() {
             <video
               src={slide.media}
               autoPlay
+              muted={isMuted}
               loop
-              muted
               playsInline
               className="w-full h-full object-cover"
             />
-
+ <button
+              onClick={toggleMute}
+              className="absolute top-40  right-4 z-10 p-2 rounded-full bg-black/60 hover:bg-black/80 text-white transition"
+              aria-label={isMuted ? "Unmute" : "Mute"}
+            >
+              {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+            </button>
             {/* Prime-style bottom-left overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent text-white flex items-end">
-              <div className="p-6 md:p-12 max-w-2xl space-y-4">
+              <div className="p-6 md:p-12 max-w-2xl space-y-4 ml-[50px]">
                 <div className="text-sky-400 font-semibold text-sm">prime</div>
                 <h1 className="text-3xl md:text-5xl font-bold">
                   {slide.title}
@@ -115,7 +125,7 @@ export default function Carousel() {
                 </div>
 
              {/* Buttons Row */}
-              <div className="hidden lg:flex  lg:gap-3 pt-4 w[80px]">
+              <div className="hidden lg:flex lg:gap-3 pt-4 w-[800px] h-[60px]">
                 <MainButton icon={<Play size={20} />} label="Play" />
                 <CircleButton icon={<Film size={20} />} label="Watch Trailer" />
                 <CircleButton icon={<Plus size={20} />} label="Add to Watchlist" />
@@ -124,9 +134,7 @@ export default function Carousel() {
                 <CircleButton icon={<Download size={20} />} label="Download" />
                 <CircleButton icon={<Share2 size={20} />} label="Share" />
               </div>
-
-
-              <div className="text-sm text-gray-300 pt-2 left-0 bottom-0 flex items-center gap-2">
+              <div className="text-sm text-gray-300 pt-2 left-0 bottom-0 flex items-center gap-2 h-[50px]">
   <BlueCheckIcon />
   Included with Prime
 </div>
