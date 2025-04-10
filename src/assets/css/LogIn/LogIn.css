@@ -22,8 +22,13 @@
   margin: 50px auto;
 }
 
+.login-main-container{
+  background-color: #fff;  
+}
+
 h2 {
   margin: 0 0 10px;
+  color: #000;
 }
 
 .email {
@@ -44,6 +49,7 @@ h2 {
   margin-bottom: 5px;
   font-size: 14px;
   font-weight: 700;
+  color: #000;
 }
 
 .keep-signed-in {
@@ -67,6 +73,7 @@ h2 {
   font-weight: 400;
   font-size: 32px;
   line-height: 36px;
+  color: #000;
 }
 
 .login-box {
@@ -97,6 +104,7 @@ input[type="email"] {
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(15, 17, 17, 0.15) inset;
   outline: 0;
+  color: #000;
 }
 
 input[type="text"]:focus,
@@ -161,6 +169,7 @@ button.btn-primary {
 .new-to-amazon-line {
   /* text-align: center; */
   margin-bottom: 15px;
+  border-bottom: 1px solid #000;
 }
 
 .new-to-amazon-txt {
@@ -250,6 +259,7 @@ button.btn-primary {
   text-align: left;
   display: flex;
   margin-bottom: 15px;
+  color: #000;
 }
 /* .password_input_and_forgot a{
     text-align: right;
@@ -298,3 +308,15 @@ button.btn-primary {
   margin-top: 5px;
   cursor: pointer;
 }
+
+.input-error {
+  border: 1px solid red;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+
