@@ -2,9 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link, Outlet } from "react-router-dom";
 import '../../assets/fontawesome-free-6.6.0-web/css/all.css'
 import '../../assets/css/GuestPage/GuestPage.css'
+import Navbar from "../../components/Nav/Nav";
 function GuestPage() {
     return (
         <>
+        <Navbar />
         {/* <!-- first Content start --> */}
         <div className="content">
             <div className="text">
@@ -13,7 +15,8 @@ function GuestPage() {
                 <p>Join Amazon Prime to watch popular movies and TV shows, including award-winning Amazon Originals.
                     Amazon Prime also includes free and fast delivery on thousands of items and more.</p>
                 <br /> <br />
-                <button><a href="#">Get Started</a></button>
+                {/* <button><a href="#">Get Started</a></button> */}
+                <button><Link to="/LogIn">Get Started</Link></button>
                 <br /> <br />
                 <h5>Subscribe to Amazon Prime for EGP 29/month or EGP 249/year.</h5>
             </div>
@@ -35,7 +38,8 @@ function GuestPage() {
                 <p>Watch Tom Clancy's Jack Ryan, award-winning Amazon Originals such as The Boys and The Marvelous Mrs.
                     Maisel, as well as popular movies and TV shows, with all titles available to download.</p>
                 <br /> <br />
-                <button><a href="#">Get Started</a></button>
+                <button><Link to="/LogIn">Get Started</Link></button>
+
                 <br /> <br />
             </div>
         </div>
@@ -71,7 +75,8 @@ function GuestPage() {
                 <p>Watch offline on the Prime Video app when you download titles to your iPhone, iPad, Tablet, or
                     Android device.</p>
                 <br /> <br />
-                <button><a href="#">Get Started</a></button>
+                <button><Link to="/LogIn">Get Started</Link></button>
+
                 <br /> <br />
             </div>
             <div className="image1">
@@ -79,6 +84,7 @@ function GuestPage() {
             </div>
         </div>
         {/* Last Content End */}
+        <outlet />
         </>
     );
 };
