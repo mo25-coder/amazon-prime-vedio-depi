@@ -1,66 +1,65 @@
-.container {
-  background-color: #f3f4f6;
-  height: 100%;
-  width: 85%;
-  margin: auto;
-  /* border: 3px #ededed solid; */
-  z-index: -1;
+.settings-container {
+  /* background-color: #f3f4f6; */
+  height: 100vh;
+  /* width: 85%; */
+  /* margin: auto; */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.header {
+.settings-header {
   margin-top: 20px;
   margin-bottom: 10px;
   font-weight: bolder;
   font-size: large;
 }
 
-.container .list {
+.settings-list {
   margin-bottom: 10px;
+  margin-left: 40px;
 }
 
-.container .list ul {
+.settings-list ul {
   display: flex;
   list-style-type: none;
 }
 
-.container .list ul a {
+.settings-list ul li{
+  margin-right: 20px;
+}
+
+.settings-list ul a {
   text-decoration: none;
   color: #87888d;
   margin-bottom: 20px;
   padding-bottom: 3px;
 }
 
-.container .list ul a:active,
-.active {
-  color: black;
+.settings-list ul a:active,
+.settings-list .settings-set {
+  color: rgb(201, 201, 201);
   text-decoration: underline;
   padding-bottom: 3px;
 }
 
-.container .list ul .set {
-  color: black;
-  text-decoration: underline;
-}
-
-.wc1,
-.wc2 {
+/* .settings-wc1,
+.settings-wc2 {
   background-color: white;
-}
+} */
 
-.wc1 .wc1-1,
-.wc2-1,
-.wc2-21 {
+.settings-wc1-1,
+.settings-wc2-1,
+.settings-wc2-21 {
   padding: 15px 30px;
 }
 
-.wc1 .wc1-2 h4,
-.wc2 h4 {
+.settings-wc1-2 h4,
+.settings-wc2 h4 {
   font-weight: bold;
 }
 
-.wc1 .wc1-2,
-.wc2-2,
-.wc2-2-2 {
+.settings-wc1-2,
+.settings-wc2-2,
+.settings-wc2-2-2 {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -70,28 +69,34 @@
   padding-bottom: 20px;
 }
 
-.wc2-2-2 p {
+.settings-wc2-2-2 p {
   max-width: 60%;
 }
 
-.wc2-2 p {
+.settings-wc2-2 p {
   max-width: fit-content;
 }
 
-button {
+.settings-btn button {
   width: 220px;
   height: 50px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  background-color: var(--bg-hover-color);
+  border-radius: 5px;
+  position: relative;
+  right: 50px;
 }
 
-button span {
-  color: black;
+.settings-btn button span {
+  color: var(--color-black);
   font-weight: bold;
   padding-left: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
-.wc2-2-2 button {
+.settings-wc2-2-2 button {
   max-width: 300px;
 }
