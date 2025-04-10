@@ -5,6 +5,12 @@
   width: 100%;
 }
 
+/* .signup-container , .logo_box{
+  background-color: #fff;
+} */
+.signup-main-container{
+  background-color: #f0f2f2;
+}
 .signup-box {
   background-color: #fff;
   text-align: left;
@@ -16,6 +22,10 @@
   margin: auto;
   /* height: 270px; */
 }
+.logo_box {
+  margin-top: 0;
+  padding-top: 20px;
+}
 
 .logo {
   text-align: center;
@@ -23,8 +33,12 @@
   font-weight: 400;
   font-size: 28px;
   line-height: 36px;
+
 }
 
+.signup-box h2, .signup-box .input-label, .password-info, .signin-link{
+  color: #000;
+}
 h2 {
   font-size: 22px;
   margin-bottom: 10px;
@@ -138,4 +152,19 @@ h2 {
 .signin-link a {
   color: #007185;
   text-decoration: none;
+}
+
+.input-error {
+  border: 1px solid red;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+
+footer{
+  top: 0;
 }
