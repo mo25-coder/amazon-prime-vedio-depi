@@ -1,5 +1,5 @@
 .settings-container {
-  /* background-color: #f3f4f6; */
+  background-color: #f3f4f6;
   height: 100vh;
   /* width: 85%; */
   /* margin: auto; */
@@ -7,15 +7,18 @@
 }
 
 .settings-header {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   margin-bottom: 10px;
   font-weight: bolder;
   font-size: large;
+  text-align: left;
+  color: #000;
+  margin-left: 100px;
 }
 
 .settings-list {
   margin-bottom: 10px;
-  margin-left: 40px;
+  margin-left: 100px;
 }
 
 .settings-list ul {
@@ -24,7 +27,7 @@
 }
 
 .settings-list ul li{
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 .settings-list ul a {
@@ -45,6 +48,9 @@
 .settings-wc2 {
   background-color: white;
 } */
+.settings-wc1{
+  border-bottom: 3px solid #ededed;
+}
 
 .settings-wc1-1,
 .settings-wc2-1,
@@ -87,6 +93,7 @@
   border-radius: 5px;
   position: relative;
   right: 50px;
+  border: 1px solid var(--color-black);
 }
 
 .settings-btn button span {
@@ -99,4 +106,26 @@
 
 .settings-wc2-2-2 button {
   max-width: 300px;
+}
+
+.settings-content{
+  margin-top: 20px;
+  border-top: 3px solid #ededed;
+  background-color: #fff;
+  width: 85%;
+  /* margin: auto; */
+  /* margin-left: 40px; */
+  position: relative;
+  left: 7.5vw;
+  text-align: left;
+}
+
+.txt-blk{
+  color: #000;
+}
+
+.bold-lighter{
+  font-weight: 400;
+  font-size: 16px;
+  font-family: initial;
 }
