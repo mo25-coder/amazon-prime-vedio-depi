@@ -9,7 +9,8 @@ import ManageAccounts from "../pages/ManageAccounts/ManageAccounts";
 import MyStuff from "../pages/MyStuff/MyStuff";
 import ShowDetails from "../pages/ShowDetails/ShowDetails";
 import Category from "../pages/Categories/Category";
-
+// new
+import GuestPage from "../pages/GuestPage/GuestPage";
 import "../assets/fontawesome-free-6.6.0-web/css/all.css";
 import Media from "../pages/Media/Media";
 
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "ShowDetails",
         element: <ShowDetails />,
+      },
+      {
+        path: "GuestPage",
+        element: <GuestPage />,
       },
       {
         path: "",
