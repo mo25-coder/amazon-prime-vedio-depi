@@ -1,116 +1,13 @@
-// import { useState, React } from "react";
-// import { Link } from "react-router-dom";
-// import "../../assets/css/SignUp/SignUp.css";
-// import LogInLogo from "../LogIn/LogInLogo/LogInLogo";
-// import LogInFooter from "../LogIn/LogInFooter/LogInFooter";
-
-// function SignUp() {
-//   const [useEmail, setUseEmail] = useState(false);
-//   return (
-//     <>
-//       <LogInLogo />
-//       <div className="signup-container">
-//         <div className="signup-box">
-//           <form action="{{url_for(SignUp)}" method="POST">
-//             <h2>Create Account</h2>
-//             <p className="required-text">All fields are required</p>
-
-//             <label className="input-label">Your name</label>
-//             <input
-//               type="text"
-//               placeholder="First and last name"
-//               className="input-field"
-//             />
-
-//             <label className="input-label">
-//               {useEmail ? "Email" : "Mobile number"}
-//             </label>
-
-//             <div className="mobile-input">
-//               {!useEmail ? (
-//                 <>
-//                   <select className="country-code">
-//                     <option>EG +20</option>
-//                     <option>GB +44</option>
-//                     <option>US +1</option>
-//                     <option>IN +91</option>
-//                   </select>
-//                   <input
-//                     type="text"
-//                     placeholder="Mobile number"
-//                     className="input-field"
-//                   />
-//                 </>
-//               ) : (
-//                 // إدخال البريد الإلكتروني
-//                 <input
-//                   type="email"
-//                   placeholder="Enter your email"
-//                   className="input-field"
-//                 />
-//               )}
-//             </div>
-
-//             <a
-//               href="#"
-//               className="email-link"
-//               onClick={(e) => {
-//                 e.preventDefault();
-//                 setUseEmail(!useEmail);
-//               }}
-//             >
-//               {useEmail
-//                 ? "Use your phone number instead"
-//                 : "Use your email instead"}
-//               <i className="fa-solid fa-angle-right"></i>
-//             </a>
-
-//             <label className="input-label">Password</label>
-//             <input
-//               type="password"
-//               placeholder="At least 6 characters"
-//               className="input-field"
-//             />
-//             <p className="password-info">
-//               <i class="fa-solid fa-circle-info"></i>Passwords must be at least
-//               6 characters.
-//             </p>
-
-//             <p className="verification-info">
-//               To verify your number, we will send you a text message with a
-//               temporary code. Message and data rates may apply.
-//             </p>
-
-//             <button className="continue-btn" type="submit">
-//               Create Account
-//             </button>
-//           </form>
-
-//           <div className="break_line"></div>
-
-//           <p className="signin-link">
-//             Already have an account?{" "}
-//             <Link to="/login">
-//               Sign in <i class="fa-solid fa-angle-right"></i>
-//             </Link>
-//           </p>
-//         </div>
-//       </div>
-//       <LogInFooter />
-//     </>
-//   );
-// }
-
-// export default SignUp;
-
 import { useState, React } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "../../assets/css/SignUp/SignUp.css";
 import LogInLogo from "../LogIn/LogInLogo/LogInLogo";
 import LogInFooter from "../LogIn/LogInFooter/LogInFooter";
+import axios from "axios";
 
 function SignUp() {
-  const [useEmail, setUseEmail] = useState(false);
+  const [useEmail, setUseEmail] = useState(true);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -134,24 +31,63 @@ function SignUp() {
   const validate = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Enter your name";
+  
     if (useEmail) {
       if (!formData.email.trim()) newErrors.email = "Enter your email";
     } else {
       if (!formData.phone.trim()) newErrors.phone = "Enter your phone number";
     }
+  
     if (!formData.password.trim()) newErrors.password = "Enter your password";
+  
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validate()) {
-      // submit the form here
-      console.log("Form is valid:", formData);
+    const data = {
+      name: formData.name,
+      password: formData.password,
+      email: useEmail ? formData.email : "", // if not using email, send empty
+      phone: useEmail ? "" : formData.phone, // if using email, send empty
+    };
+  
+    console.log("Sending data:", data); // 👈 Check this in the browser console
+  
+    if (!validate()) return;
+    try {
+      const response = await axios.post("http://127.0.0.1:5000/signup", {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password
+      }, {
+        headers: {
+          "Content-Type": "application/json"
+        },
+        withCredentials: true
+      });
+  
+      // console.log("Response:", response.data);
+      console.log("Response from backend:", response.data);
+  
+      if (response.data.success) {
+        alert(response.data.message); // Optional: show a success message
+        navigate("/homepage");
+      } else {
+        alert(response.data.message || "Signup failed.");
+      }
+      
+  
+    } catch (error) {
+      if (error.response) {
+        console.error("Server responded with error:", error.response.data);
+      } else {
+        console.error("Request error:", error.message);
+      }
+      alert("An error occurred while logging in.");
     }
   };
-
   return (
     <>
     <div className="signup-main-container">
