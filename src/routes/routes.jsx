@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       },
       {
         path: "",
-        element: <App />,
+        element: <GuestPage />,  // changed from App to guestpage
       },
     ],
   },
