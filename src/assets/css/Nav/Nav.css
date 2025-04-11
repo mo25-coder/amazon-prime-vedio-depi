@@ -7,7 +7,7 @@
   background-color: var(--bg-color-lighter);
   color: white;
   position: fixed;
-  height: 10vh;
+  height: 80px;
   width: 99vw;
   margin: auto;
   top: 0%;
@@ -15,7 +15,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
   /* padding: 10px; */
   /* border: 3px solid rgb(240, 128, 128); */
   border-bottom-right-radius: 15px;
@@ -25,6 +24,9 @@
 
 .navbarLogo {
   /* border: 1px solid yellow; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   left: 1px;
   padding: 5px;
@@ -34,6 +36,7 @@
   /* border: 1px solid red; */
   font-size: 100px;
   color: white;
+  transition: 0.5s;
 }
 .navbarLogoIcon:hover {
   color: #ff9900;
@@ -50,7 +53,8 @@
 
 .navbarLstContainer {
   position: absolute;
-  left: 10%;
+  left: 120px;
+  margin-left: 10px;
 }
 
 .navbarLst {
@@ -66,10 +70,11 @@
     hsla(0, 0%, 90%, 0.8) 10%,
     hsla(0, 0%, 25%, 0.95) 60%
   ); */
-
   background: var(--primary-btn-background);
+  transition: 0.5s ease-in-out;
 }
 .navbarLstLink {
+  transition: 0.5s ease-in-out;
   color: #fff;
   text-decoration: none;
   font-size: var(--font-size-primary);
@@ -81,8 +86,10 @@
 
 .navbarLstHome:hover {
   background: none;
+  transition: 0.5s ease-in-out;
 }
 .navbarLstLink:hover {
+  transition: 0.5s ease-in-out;
   color: var(--primary-bg-color);
   background-color: var(--bg-hover-color);
   border-radius: 10px;
@@ -94,16 +101,14 @@
   justify-content: space-evenly;
   position: absolute;
   right: 0px;
-  width: 250px;
-  /* margin-right: 20px; */
+  width: 300px;
+  margin-right: 20px;
 }
-
 .navSearchContainer,
 .navbarMenuContainer,
 .navbarUserContainer,
 .navbarMyStuff {
   color: white;
-  cursor: pointer;
   background-color: transparent;
   border-radius: 50%;
   display: flex;
@@ -115,9 +120,11 @@
 .navbar__link {
   color: white;
   text-decoration: none;
-  cursor: pointer;
 }
 .navbar__link:hover {
+  cursor: pointer;
+
+  transition: 0.2s ease-in-out;
   color: #353535;
   background-color: #fff;
   /* margin: 10px; */
@@ -132,6 +139,8 @@
   cursor: pointer;
 }
 .navSearchContainer:hover {
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
   color: #353535;
   background-color: #ebebeb;
   border-radius: 50%;
@@ -141,20 +150,21 @@
 .navbarUserIcon {
   /* border: 1px solid orange; */
   font-size: 30px;
-  cursor: pointer;
 }
 .navbarMenuIcon:hover {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
   color: #353535;
   background-color: #ebebeb;
   border-radius: 50%;
-  box-shadow: 0 0 5px #ebebeb;
+  box-shadow: 0 0 10px #ebebeb;
 }
 .navbarDropMenu {
-  cursor: pointer;
   display: none;
   position: absolute;
   top: 50px;
-  right: -5px;
+  right: -10px;
+  min-width: 300px;
   background-color: #333;
   color: white;
   padding: 10px;
@@ -162,27 +172,25 @@
   border-radius: 10px;
   box-shadow: 1px 1px 15px -5px rgba(0, 0, 0, 0.6);
 }
-.navbarDropMenu div {
-  display: flex;
-  margin-left: 5px;
-  /* color: #f10000; */
-}
+.navbarDropMenu div,
 .myStuffMenu div {
   display: flex;
   margin-left: 5px;
-  /* color: #9f9f9f; */
+  margin-bottom: 15px;
+  margin-top: 15px;
+  color: #9f9f9f;
 }
+
 .navbarDropMenu.active {
   display: block;
-  /* opacity: 1; */
+  opacity: 1;
   /* visibility: visible; */
   /* transform: translateY(0); */
   /* transition: 3s ease-in-out; */
 }
-
 .navbarDropMenu.inactive {
   display: none;
-  /* opacity: 0; */
+  opacity: 0;
   /* visibility: invisible; */
   /* transform: translateY(-20px); */
   /* transition: 3s ease-in-out; */
@@ -190,47 +198,59 @@
 .navbarDropMenu ul {
   list-style-type: none;
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   gap: 10px;
-  padding: 10px;
+  padding: 5px;
+  margin: 5px;
 }
 .navbarUserIcon:hover,
 .navbarMyStuff:hover {
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
   color: #353535;
   background-color: #ebebeb;
   border: 1px solid #ebebeb;
   border-radius: 50%;
-  box-shadow: 0 0 5px #ebebeb;
+  box-shadow: 0 0 10px #ebebeb;
 }
 .userMenu {
   position: absolute;
   top: 50px;
   right: -5px;
+  min-width: 150px;
   background-color: #333;
   color: white;
   padding: 10px;
+  margin: 5px;
   border-radius: 10px;
   box-shadow: 1px 1px 15px -5px rgba(0, 0, 0, 0.6);
 }
 .myStuffMenu {
   position: absolute;
   top: 50px;
+  right: -5px;
+  min-width: 150px;
   background-color: #333;
   color: white;
   padding: 10px;
+  margin: 5px;
   border-radius: 10px;
   box-shadow: 1px 1px 15px -5px rgba(0, 0, 0, 0.6);
 }
 
 .userMenuLst,
 .myStuffMenuLst {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 2fr 2fr;
+  gap: 10px;
   position: relative;
-  left: -20px;
-  align-items: center;
-  justify-content: space-between;
+  left: 10px;
+  justify-items: start;
+  justify-content: start;
   list-style-type: none;
 }
 
