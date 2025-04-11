@@ -1,4 +1,4 @@
-import "..src/assets/css/Nav/Nav.css";
+import "../../assets/css/Nav/Nav.css";
 import { FaSearch, FaUserCircle, FaBookmark } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
 import { SiPrimevideo } from "react-icons/si";
@@ -13,22 +13,19 @@ export default function Navbar() {
   const [myStuffOpen, setMyStuffOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   let menuRef = useRef();
   let userRef = useRef();
   let myStuffRef = useRef();
   let searchRef = useRef();
-
   const handleHover = () => {
     setIsOpen(true);
   };
-
   const handleClickOutsideMenu = (event) => {
     if (!menuRef.current.contains(event.target)) {
       setMenuOpen(false);
     }
   };
-
   const handleClickOutsideUser = (event) => {
     if (!userRef.current.contains(event.target)) {
       setIsOpen(false);
@@ -58,19 +55,14 @@ export default function Navbar() {
     };
   }, []);
 
-  //   useEffect(() => {
-  //     let handler = (event) => {
-  //       if (!menuRef.current.contains(event.target)) {
-  //         setMenuOpen(true);
-  //       }
-  //     };
-  //     document.addEventListener("mousedown", handler);
-
-  //     return () => {
-  //       document.removeEventListener("mousedown", handler);
-  //     };import { Routes, Route, Link } from "react-router-dom";
-
-  //   });
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+  };
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    setIsLoggedIn(!!user);
+  }, []);
 
   /*
   ================================
@@ -82,7 +74,6 @@ export default function Navbar() {
     //   setIsOpen(false);
     // }
 //   };
-
 //   useEffect(() => {
     // document.addEventListener("click", handleClickOutside);
     // return () => {
@@ -90,6 +81,19 @@ export default function Navbar() {
     // };
 //   }, []);
 
+  // useEffect(() => {
+  //   let handler = (event) => {
+  //     if (!menuRef.current.contains(event.target)) {
+  //       setMenuOpen(true);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handler);
+
+  //   return () => {
+  //     document.removeEventListener("mousedown", handler);
+  //   };
+  // });
+  
   return (
     <nav className="navbar">
       <div className="brand">Brand</div>
@@ -108,7 +112,6 @@ export default function Navbar() {
     </nav>
   );
 }
-
 export default App;
 =====================================
   */
@@ -121,112 +124,163 @@ export default App;
         </a>
       </div>
 
-      <div className="navbarLstContainer">
-        <ul className="navbarLst">
-          <li className=" navbarLstItem">
-            <a href="#" className="navbarLstLink navbarLstHome" target="_blank">
-              Home
-            </a>
-          </li>
-          <li className="navbarLstItem">
-            <a href="#" className="navbarLstLink" target="_blank">
-              Movies
-            </a>
-          </li>
-          <li className="navbarLstItem">
-            <a href="#" className="navbarLstLink" target="_blank">
-              TV Shows
-            </a>
-          </li>
-        </ul>
-      </div>
-
       {/* Search and User Section */}
-      <div className="navbarRightContainer">
-        {/* <div className="navSearchContainer"> */}
-        <div className="navSearchContainer" ref={searchRef}>
-          <FaSearch
-            className="searchIcon"
-            onClick={() => setSearchOpen(!searchOpen)}
-          />
-          {searchOpen && (
-            <form action="" method="post">
-              <input
-                type="text"
-                placeholder="Search"
-                className="searchInput"
-              ></input>
-            </form>
-          )}
-        </div>
+      <div className="navbarUserContainer">
+        {isLoggedIn ? (
+          <>
+            <div className="navbarUserContainerBeforeAuth">
+              <div
+                className="navbarUserContainer"
+                ref={userRef}
+                onMouseEnter={handleHover}
+              >
+                <FaUserCircle className="navbarUserIcon" />
+                {isOpen && (
+                  <div
+                    className="userMenu"
+                    onMouseLeave={() => setIsOpen(false)}
+                  >
+                    <div>Your Account</div>
 
-        <div className="navbarMenuContainer" ref={menuRef}>
-          <CgMenuGridO
-            className="navbarMenuIcon"
-            onClick={() => setMenuOpen(!menuOpen)}
-          />
-          {menuOpen && (
-            <div
-              className={`navbarDropMenu ${menuOpen ? "active" : "inactive"}`}
-              //   onMouseLeave={() => setMenuOpen(false)}
-            >
-              <div>Genre</div>
-              <ul>
-                <DropdownItem text={"Action"} />
-                <DropdownItem text={"Adventure"} />
-                <DropdownItem text={"Comedy"} />
-                <DropdownItem text={"Documentary"} />
-                <DropdownItem text={"Drama"} />
-                <DropdownItem text={"Horror"} />
-                <DropdownItem text={"Family"} />
-                <DropdownItem text={"Kids"} />
-                <DropdownItem text={"Mystery"} />
-                <DropdownItem text={"Thrillers"} />
-                <DropdownItem text={"Romance"} />
-                <DropdownItem text={"SciFi"} />
+                    <ul className="userMenuLst">
+                      <DropdownItem text={"Sign in"} path="/LogIn" />
+                      <DropdownItem text={"Register"} path="/SignUp" />
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="navbarLstContainer">
+              <ul className="navbarLst">
+                <li className=" navbarLstItem">
+                  <Link
+                    Link
+                    to="/Homepage"
+                    className="navbarLstLink navbarLstHome"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className="navbarLstItem">
+                  <Link Link to="/Category/Drama" className="navbarLstLink">
+                    Movies
+                  </Link>
+                </li>
+                <li className="navbarLstItem">
+                  <Link Link to="/Category/Drama" className="navbarLstLink">
+                    TV Shows
+                  </Link>
+                </li>
               </ul>
             </div>
-          )}
-        </div>
-        <div className="navbarMyStuff" ref={myStuffRef}>
-          <FaBookmark
-            className="myStuffIcon"
-            onClick={() => setMyStuffOpen(!myStuffOpen)}
-          />
-          {myStuffOpen && (
-            <div
-              className="myStuffMenu"
-              //   onMouseLeave={() => setMyStuffOpen(false)}
-            >
-              <div>My Stuff</div>
-              <ul className="myStuffMenuLst">
-                <DropdownItem
-                  text={"All"}
-                  //  to={"MyStuff"}
+            <div className="navbarRightContainer">
+              <div className="navSearchContainer" ref={searchRef}>
+                <FaSearch
+                  className="searchIcon"
+                  onClick={() => setSearchOpen(!searchOpen)}
                 />
-              </ul>
+                {searchOpen && (
+                  <form action="" method="post">
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      className="searchInput"
+                    ></input>
+                  </form>
+                )}
+              </div>
+              <div className="navbarMenuContainer" ref={menuRef}>
+                <CgMenuGridO
+                  className="navbarMenuIcon"
+                  onClick={() => setMenuOpen(!menuOpen)}
+                />
+                {menuOpen && (
+                  <div
+                    className={`navbarDropMenu ${
+                      menuOpen ? "active" : "inactive"
+                    }`}
+                    onMouseLeave={() => setMenuOpen(false)}
+                  >
+                    <div>
+                      Genre{" "}
+                      <Link
+                        to="/HomePage"
+                        class="navbar__linkMobile navbar__link navbarLstHome"
+                      >
+                        <span>Home</span>
+                      </Link>{" "}
+                    </div>
+                    <ul>
+                      <DropdownItem text={"Action"} />
+                      <DropdownItem text={"Adventure"} />
+                      <DropdownItem text={"Comedy"} />
+                      <DropdownItem text={"Documentary"} />
+                      <DropdownItem text={"Drama"} path="/Category/Drama" />
+                      <DropdownItem text={"Horror"} />
+                      <DropdownItem text={"Family"} />
+                      <DropdownItem text={"Kids"} />
+                      <DropdownItem text={"Mystery"} />
+                      <DropdownItem text={"Thrillers"} />
+                      <DropdownItem text={"Romance"} />
+                      <DropdownItem text={"SciFi"} />
+                    </ul>
+                  </div>
+                )}
+              </div>
+              <div className="navbarMyStuff" ref={myStuffRef}>
+                <FaBookmark
+                  className="myStuffIcon"
+                  onClick={() => setMyStuffOpen(!myStuffOpen)}
+                />
+                {myStuffOpen && (
+                  <div
+                    className="myStuffMenu"
+                    onMouseLeave={() => setMyStuffOpen(false)}
+                  >
+                    <div>My Stuff</div>
+                    <ul className="myStuffMenuLst">
+                      <DropdownItem text={"All"} path="/MyStuff" />
+                    </ul>
+                  </div>
+                )}
+              </div>
+              <div
+                className="navbarUserContainer"
+                ref={userRef}
+                onMouseEnter={handleHover}
+              >
+                <FaUserCircle className="navbarUserIcon" />
+                {isOpen && (
+                  <div
+                    className="userMenu"
+                    onMouseLeave={() => setIsOpen(false)}
+                  >
+                    {" "}
+                    <div>Your Account</div>
+                    <ul className="userMenuLst">
+                      <DropdownItem
+                        text={"Account Settings"}
+                        path="/AccountAndSettings"
+                      />
+                      <DropdownItem
+                        text={"Manage Profiles"}
+                        path="/ManageAccounts"
+                      />
+                      <DropdownItem
+                        onClick={handleLogout}
+                        text={"Sign Out"}
+                        path="/GuestPage"
+                      />
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
-          )}
-        </div>
-
-        <div
-          className="navbarUserContainer"
-          ref={userRef}
-          onMouseEnter={handleHover}
-        >
-          <FaUserCircle className="navbarUserIcon" />
-          {isOpen && (
-            <div
-              className="userMenu"
-              // onMouseLeave={() => setIsOpen(false)}
-            >
-              <ul className="userMenuLst">
-                <DropdownItem text={"Account"} />
-                <DropdownItem text={"Sign Out"} />
-              </ul>
-            </div>
-          )}
-        </div>
+          </>
+        )}
       </div>
     </div>
   );
@@ -235,11 +289,9 @@ export default App;
 function DropdownItem(props) {
   return (
     <li>
-      {/* <Link to={props.alink} className="nav-link"> */}
-      <a href="#" className="navbar__link">
+      <Link to={props.path} className="navbar__link">
         <span>{props.text}</span>
-      </a>
-      {/* </Link> */}
+      </Link>
     </li>
   );
 }
