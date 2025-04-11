@@ -177,8 +177,15 @@ const categoriesArray = [
 ];
 
 function HomeCategories() {
+  // for mohamed sameh => write the logic to get the categories from the server
+  // =================||==============================||==============================
+  // i am waiting for a response => [{},{},.... ] array of objects,
+  // each object has a category name and an array of movies
+  // =================||==============================||==============================
+  // http://www.omdbapi.com/?apikey=[yourkey]&type=movie => response will be all movies, filterr it and store the imagesw of this response , (Poster)
+  // i will reuse this logic in movies and series pages
+
   return categoriesArray.map((cat) => {
-    console.log(1);
     return (
       <div className="category-slider" key={cat.category}>
         <CategorySlider data={cat} />

@@ -20,7 +20,19 @@ export default function Navbar() {
   let userRef = useRef();
   let myStuffRef = useRef();
   let searchRef = useRef();
-
+  const categoryTypes = [
+    "Adventure",
+    "Comedy",
+    "Documentary",
+    "Drama",
+    "Horror",
+    "Family",
+    "Kids",
+    "Mystery",
+    "Thrillers",
+    "Romance",
+    "SciFi",
+  ];
   const handleHover = () => {
     setIsOpen(true);
   };
@@ -165,12 +177,12 @@ export default App;
                   </Link>
                 </li>
                 <li className="navbarLstItem">
-                  <Link Link to="Category" className="navbarLstLink">
+                  <Link Link to="/Media/movies" className="navbarLstLink">
                     Movies
                   </Link>
                 </li>
                 <li className="navbarLstItem">
-                  <Link Link to="Category" className="navbarLstLink">
+                  <Link Link to="/Media/tvshows" className="navbarLstLink">
                     TV Shows
                   </Link>
                 </li>
@@ -206,18 +218,13 @@ export default App;
                   >
                     <div>Genre</div>
                     <ul>
-                      <DropdownItem text={"Action"} />
-                      <DropdownItem text={"Adventure"} />
-                      <DropdownItem text={"Comedy"} />
-                      <DropdownItem text={"Documentary"} />
-                      <DropdownItem text={"Drama"} path="/Category/Drama" />
-                      <DropdownItem text={"Horror"} />
-                      <DropdownItem text={"Family"} />
-                      <DropdownItem text={"Kids"} />
-                      <DropdownItem text={"Mystery"} />
-                      <DropdownItem text={"Thrillers"} />
-                      <DropdownItem text={"Romance"} />
-                      <DropdownItem text={"SciFi"} />
+                      {categoryTypes.map((cat) => (
+                        <DropdownItem
+                          key={cat}
+                          text={cat}
+                          path={`/category/${cat}`}
+                        />
+                      ))}
                     </ul>
                   </div>
                 )}
