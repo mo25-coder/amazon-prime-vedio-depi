@@ -1,32 +1,32 @@
 * {
   box-sizing: border-box;
 }
-
 .navbarContainer {
-  background-color: #333;
+  z-index: 9999;
+  background-color: var(--bg-color-lighter);
   color: white;
-  position: fixed;
-  height: 10vh;
-  width: 95vw;
-  left: 2%;
+  position: sticky;
+  height: 70px;
+  width: 99.5vw;
+  margin: auto;
   top: 0%;
-  right: 2%;
-  opacity: 0.95;
+  opacity: 0.97;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
   /* padding: 10px; */
   /* border: 3px solid rgb(240, 128, 128); */
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
   box-shadow: 1px 5px 15px -5px rgba(0, 0, 0, 0.6);
 }
-
 .navbarLogo {
   /* border: 1px solid yellow; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  left: 1px;
+  left: 20px;
   padding: 5px;
   margin: 5px;
 }
@@ -34,12 +34,12 @@
   /* border: 1px solid red; */
   font-size: 100px;
   color: white;
+  transition: 0.3s ease-in-out;
 }
 .navbarLogoIcon:hover {
-  color: #ff9900;
-  transition: 0.5s;
+  color: #4ea9ff;
+  transition: 0.3s ease-in-out;
 }
-
 /* .navbarLogoImg {
   width: 300px;
   object-fit: contain;
@@ -47,45 +47,58 @@
   padding: 5px;
   box-shadow: inset 1px 1px 15px -5px rgba(0, 0, 0, 0.6);
 } */
-
 .navbarLstContainer {
+  /* border: 1px solid yellow; */
   position: absolute;
-  left: 10%;
+  left: 130px;
+  margin-left: 20px;
 }
-
 .navbarLst {
   list-style-type: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .navbarLstHome {
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle farthest-corner at 50% -50%,
     hsla(0, 0%, 90%, 0.8) 10%,
     hsla(0, 0%, 25%, 0.95) 60%
-  );
+  ); */
+  background: var(--primary-btn-background);
+  transition: 0.2s ease-in-out;
 }
 .navbarLstLink {
-  color: #ebebeb;
+  /* border: 1px solid red; */
+
+  transition: 0.2s ease-in-out;
+  color: #fff;
   text-decoration: none;
-  font-size: 14px;
-  margin-left: 5px;
-  padding: 10px 20px;
+  font-size: var(--font-size-primary);
+  font-weight: 600;
+  margin-left: 10px;
+  padding: 10px;
   border-radius: 10px;
 }
-
 .navbarLstHome:hover {
   background: none;
+  transition: 0.2s ease-in-out;
 }
 .navbarLstLink:hover {
-  color: #353535;
-  background-color: #ebebeb;
-  text-decoration: underline;
-  /* margin-left: 10px; */
+  transition: 0.2s ease-in-out;
+  color: var(--primary-bg-color);
+  background-color: var(--bg-hover-color);
   border-radius: 10px;
-  text-shadow: 0 0 20px #000;
+}
+.navbarUserContainerBeforeAuth {
+  /* border: 1px solid greenyellow; */
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  margin-right: 50px;
 }
 .navbarRightContainer {
   /* border: 1px solid greenyellow; */
@@ -94,17 +107,14 @@
   justify-content: space-evenly;
   position: absolute;
   right: 0px;
-  width: 250px;
-  /* margin-right: 20px; */
+  width: 300px;
+  margin-right: 20px;
 }
-
 .navSearchContainer,
 .navbarMenuContainer,
 .navbarUserContainer,
 .navbarMyStuff {
   color: white;
-  cursor: pointer;
-  border: 1px solid pink;
   background-color: transparent;
   border-radius: 50%;
   display: flex;
@@ -116,9 +126,10 @@
 .navbar__link {
   color: white;
   text-decoration: none;
-  cursor: pointer;
 }
 .navbar__link:hover {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
   color: #353535;
   background-color: #fff;
   /* margin: 10px; */
@@ -133,6 +144,8 @@
   cursor: pointer;
 }
 .navSearchContainer:hover {
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
   color: #353535;
   background-color: #ebebeb;
   border-radius: 50%;
@@ -142,48 +155,53 @@
 .navbarUserIcon {
   /* border: 1px solid orange; */
   font-size: 30px;
-  cursor: pointer;
 }
 .navbarMenuIcon:hover {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
   color: #353535;
   background-color: #ebebeb;
   border-radius: 50%;
-  box-shadow: 0 0 5px #ebebeb;
+  box-shadow: 0 0 10px #ebebeb;
 }
 .navbarDropMenu {
-  cursor: pointer;
   display: none;
   position: absolute;
-  top: 50px;
+  top: 55px;
   right: -5px;
-  background-color: #333;
+  min-width: 300px;
+  background-color: var(--bg-color-lighter);
   color: white;
   padding: 10px;
   margin: 5px;
   border-radius: 10px;
   box-shadow: 1px 1px 15px -5px rgba(0, 0, 0, 0.6);
 }
-.navbarDropMenu div {
+.navbarDropMenu div,
+.myStuffMenu div,
+.userMenu div {
   display: flex;
   margin-left: 5px;
-  /* color: #f10000; */
+  margin-bottom: 15px;
+  margin-top: 15px;
+  color: #9f9f9f;
 }
-.myStuffMenu div {
-  display: flex;
-  margin-left: 5px;
-  /* color: #9f9f9f; */
+
+.navbar__linkMobile {
+  display: none;
+  opacity: 0;
 }
+
 .navbarDropMenu.active {
   display: block;
-  /* opacity: 1; */
+  opacity: 1;
   /* visibility: visible; */
   /* transform: translateY(0); */
   /* transition: 3s ease-in-out; */
 }
-
 .navbarDropMenu.inactive {
   display: none;
-  /* opacity: 0; */
+  opacity: 0;
   /* visibility: invisible; */
   /* transform: translateY(-20px); */
   /* transition: 3s ease-in-out; */
@@ -191,50 +209,60 @@
 .navbarDropMenu ul {
   list-style-type: none;
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   gap: 10px;
-  padding: 10px;
+  padding: 5px;
+  margin: 5px;
 }
 .navbarUserIcon:hover,
 .navbarMyStuff:hover {
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
   color: #353535;
   background-color: #ebebeb;
   border: 1px solid #ebebeb;
   border-radius: 50%;
-  box-shadow: 0 0 5px #ebebeb;
+  box-shadow: 0 0 10px #ebebeb;
 }
 .userMenu {
   position: absolute;
-  top: 50px;
+  top: 55px;
   right: -5px;
-  background-color: #333;
+  min-width: 200px;
+  background-color: var(--bg-color-lighter);
   color: white;
-  padding: 10px;
+  padding: 15px;
+  margin: 5px;
   border-radius: 10px;
   box-shadow: 1px 1px 15px -5px rgba(0, 0, 0, 0.6);
 }
 .myStuffMenu {
   position: absolute;
-  top: 50px;
-  background-color: #333;
+  top: 55px;
+  right: -5px;
+  min-width: 250px;
+  background-color: var(--bg-color-lighter);
   color: white;
   padding: 10px;
+  margin: 5px;
   border-radius: 10px;
   box-shadow: 1px 1px 15px -5px rgba(0, 0, 0, 0.6);
 }
-
 .userMenuLst,
 .myStuffMenuLst {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 2fr 2fr;
+  gap: 10px;
   position: relative;
-  left: -20px;
-  align-items: center;
-  justify-content: space-between;
+  left: 10px;
+  justify-items: start;
+  justify-content: start;
   list-style-type: none;
 }
-
 .searchInput {
   position: absolute;
   top: 50px;
@@ -259,4 +287,116 @@
 }
 .searchInput:focus {
   box-shadow: inset 1px 2px 20px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* For tablets and below (max-width: 768px) */
+@media (max-width: 768px) {
+  .navbarLogo {
+    left: 5px;
+  }
+  .navbarLogoIcon {
+    font-size: 80px;
+  }
+
+  .navbarLstContainer {
+    left: 90px;
+    margin-left: 5px;
+  }
+
+  .navbarLstLink {
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 5px 5px;
+  }
+
+  .navbarRightContainer {
+    font-size: 80px;
+    width: 180px;
+    margin-right: 5px;
+  }
+
+  .myStuffMenu {
+    min-width: 100px;
+    right: 2%;
+    font-size: 12px;
+    padding: 3px;
+  }
+  .userMenu {
+    min-width: 150px;
+    right: 2%;
+    font-size: 12px;
+    padding: 5px;
+    padding-bottom: 15px;
+  }
+  .navbarDropMenu {
+    min-width: 220px;
+    right: 2%;
+    font-size: 12px;
+    padding: 1px;
+  }
+
+  .searchInput {
+    right: 30%;
+    font-size: 16px;
+  }
+}
+
+/* For mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .navbarContainer {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .navbarLogoIcon {
+    font-size: 80px;
+  }
+
+  .navbarLstContainer {
+    display: none;
+  }
+
+  .navbarRightContainer {
+    /* font-size: 60px; */
+    width: 150px;
+    margin-right: 5px;
+  }
+
+  .navbarLstLink {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .searchInput {
+    right: 5%;
+    font-size: 14px;
+  }
+  .navbar__linkMobile {
+    display: flex;
+    opacity: 1;
+  }
+  .navbarDropMenu div {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .navbarLstHome {
+    /* border: 1px solid red; */
+
+    transition: 0.2s ease-in-out;
+    color: #fff;
+    /* text-decoration: none; */
+    font-weight: 600;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .navbarDropMenu ul {
+    row-gap: 5px;
+    column-gap: 1px;
+  }
+  .navbar__link:hover {
+    /* margin: 10px; */
+    padding: 5px;
+  }
 }
