@@ -87,24 +87,25 @@ export default function Carousel() {
               playsInline
               className="w-full h-full object-cover"
             />
- <button
+            <button
               onClick={toggleMute}
               className="absolute top-40  right-4 z-10 p-2 rounded-full bg-black/60 hover:bg-black/80 text-white transition"
               aria-label={isMuted ? "Unmute" : "Mute"}
             >
               {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
             </button>
+
             {/* Prime-style bottom-left overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent text-white flex items-end">
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent text-white flex items-end padding-30" style={{ paddingLeft: "60px", paddingBottom: "30px" }}>
               <div className="p-6 md:p-12 max-w-2xl space-y-4 ml-[50px]">
-                <div className="text-sky-400 font-semibold text-sm">prime</div>
-                <h1 className="text-3xl md:text-5xl font-bold">
+                <div className="text-sky-400 font-semibold text-[30px]" style={{ paddingRight: "100%" }}>prime</div>
+                <h1 className="text-3xl md:text-5xl font-bold" style={{ paddingBottom: "30px", textAlign: "left" }}>
                   {slide.title}
                 </h1>
-                <p className="text-base md:text-lg text-gray-200">
+                <p className="text-base md:text-lg text-gray-200" style={{ paddingBottom: "30px", textAlign: "left" }}>
                   {slide.description}
                 </p>
-                <div className="flex items-center gap-3 text-sm text-gray-300 flex-wrap">
+                <div className="flex items-center gap-3 text-sm text-gray-300 flex-wrap" style={{ paddingBottom: "30px" }}>
                   <span>IMDb {slide.imdb}</span>
                   <span>{slide.duration}</span>
                   <span>{slide.year}</span>
@@ -113,7 +114,7 @@ export default function Carousel() {
                   </span>
                   <span>{slide.rating}</span>
                 </div>
-                <div className="flex flex-wrap gap-2 text-sm text-gray-400">
+                <div className="flex flex-wrap gap-2 text-sm text-gray-400" style={{ paddingBottom: "30px" }}>
                   {slide.tags.map((tag, i) => (
                     <span
                       key={i}
@@ -124,20 +125,20 @@ export default function Carousel() {
                   ))}
                 </div>
 
-             {/* Buttons Row */}
-              <div className="hidden lg:flex lg:gap-3 pt-4 w-[800px] h-[60px]">
-                <MainButton icon={<Play size={20} />} label="Play" />
-                <CircleButton icon={<Film size={20} />} label="Watch Trailer" />
-                <CircleButton icon={<Plus size={20} />} label="Add to Watchlist" />
-                <CircleButton icon={<ThumbsUp size={20} />} label="Like" />
-                <CircleButton icon={<ThumbsDown size={20} />} label="Dislike" />
-                <CircleButton icon={<Download size={20} />} label="Download" />
-                <CircleButton icon={<Share2 size={20} />} label="Share" />
-              </div>
-              <div className="text-sm text-gray-300 pt-2 left-0 bottom-0 flex items-center gap-2 h-[50px]">
-  <BlueCheckIcon />
-  Included with Prime
-</div>
+                {/* Buttons Row */}
+                <div className="hidden lg:flex lg:gap-3 pt-4 w-[800px] h-[60px]">
+                  <MainButton icon={<Play size={20} />} label="Play" />
+                  <CircleButton icon={<Film size={20} />} label="Watch Trailer" />
+                  <CircleButton icon={<Plus size={20} />} label="Add to Watchlist" />
+                  <CircleButton icon={<ThumbsUp size={20} />} label="Like" />
+                  <CircleButton icon={<ThumbsDown size={20} />} label="Dislike" />
+                  <CircleButton icon={<Download size={20} />} label="Download" />
+                  <CircleButton icon={<Share2 size={20} />} label="Share" />
+                </div>
+                <div className="text-sm text-gray-300 pt-2 left-0 bottom-0 flex items-center gap-2 h-[50px]">
+                  <BlueCheckIcon />
+                  Included with Prime
+                </div>
 
 
               </div>
