@@ -94,6 +94,15 @@
   background-color: var(--bg-hover-color);
   border-radius: 10px;
 }
+.navbarUserContainerBeforeAuth {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  margin-right: 50px;
+}
 .navbarRightContainer {
   /* border: 1px solid greenyellow; */
   display: flex;
