@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../../assets/css/LogIn/LogIn.css';
 import LogInLogo from "./LogInLogo/LogInLogo";
@@ -12,6 +12,7 @@ const LogIn = () => {
     const [step, setStep] = useState(1);
     const [showHelp, setShowHelp] = useState(false);
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
 
     const handleNext = () => {
         if (!email.trim()) {
@@ -37,7 +38,8 @@ const LogIn = () => {
           console.log("Response:", response.data);
       
           if (response.data.logged_in) {
-            alert("Login successful!");
+            // alert("Login successful!");
+            navigate("/homepage"); // ✅ redirect to your homepage
           } else {
             alert("Login failed.");
           }
