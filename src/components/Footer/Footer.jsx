@@ -1,5 +1,5 @@
 import { SiContentful, SiPrimevideo } from "react-icons/si";
-import "../src/assets/css/Footer/Footer.css";
+import "../../assets/css/Footer/Footer.css";
 import { FaFileExcel } from "react-icons/fa";
 
 export default function Footer() {
@@ -17,7 +17,11 @@ export default function Footer() {
       <div className="footerLstContainer">
         <ul className="footerLst">
           <li className="footerLstItem">
-            <a href="/" className="footerLstLink">
+            <a
+              href="https://www.primevideo.com/help/ref=atv_surl_terms?nodeId=202064890"
+              target="_blank"
+              className="footerLstLink"
+            >
               Terms and Privacy Notice
             </a>
           </li>
@@ -27,7 +31,11 @@ export default function Footer() {
             </a>
           </li>
           <li className="footerLstItem">
-            <a href="/" className="footerLstLink">
+            <a
+              href="https://www.primevideo.com/help"
+              target="_blank"
+              className="footerLstLink"
+            >
               Help
             </a>
           </li>
