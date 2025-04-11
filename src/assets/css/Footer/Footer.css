@@ -1,45 +1,33 @@
 .footerContainer {
-  background-color: #111;
-  color: #fff;
-  position: fixed;
   height: 20vh;
   width: 100vw;
+  position: relative;
   bottom: 0%;
   left: 0%;
   right: 0%;
   padding-top: 1px;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
-  box-shadow: 1px 5px 15px -5px rgba(0, 0, 0, 0.6);
+  margin: 20px auto;
 }
 
 .footerLogo {
-  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
   margin-top: 0px;
 }
 
 .footerLogoImg {
-  height: 100px;
-  /* border: 1px solid #00ffd5; */
   background-color: transparent;
   color: #ffffff;
   font-size: 100px;
 }
 
 .footerLstContainer {
-  /* border: 1px solid yellow; */
-  background-color: #111;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   margin-top: -20px;
 }
 .footerLst {
-  /* border: 1px solid orange; */
   list-style-type: none;
   display: flex;
   align-items: center;
@@ -56,4 +44,46 @@
 .footerLstAdd {
   color: #b1b1b1;
   text-decoration: none;
+}
+
+/* For tablets and below (max-width: 768px) */
+@media (max-width: 768px) {
+  .footerLogoImg {
+    font-size: 70px;
+  }
+
+  .footerLst {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .footerLstItem {
+    margin-left: 15px;
+    font-size: 14px;
+  }
+}
+
+/* For mobile screens (max-width: 480px) */
+
+@media (max-width: 480px) {
+  .footerContainer {
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .footerLogoImg {
+    font-size: 50px;
+  }
+
+  .footerLst {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .footerLstItem {
+    margin-left: 0;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
 }
