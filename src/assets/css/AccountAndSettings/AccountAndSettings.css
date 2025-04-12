@@ -3,7 +3,11 @@
   height: 100vh;
   /* width: 85%; */
   /* margin: auto; */
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* position: relative; */
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.spacerNav {
+  height: 50px;
 }
 
 .settings-header {
@@ -26,7 +30,7 @@
   list-style-type: none;
 }
 
-.settings-list ul li{
+.settings-list ul li {
   margin-right: 50px;
 }
 
@@ -48,7 +52,7 @@
 .settings-wc2 {
   background-color: white;
 } */
-.settings-wc1{
+.settings-wc1 {
   border-bottom: 3px solid #ededed;
 }
 
@@ -100,15 +104,14 @@
   color: var(--color-black);
   font-weight: bold;
   padding-left: 15px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .settings-wc2-2-2 button {
   max-width: 300px;
 }
 
-.settings-content{
+.settings-content {
   margin-top: 20px;
   border-top: 3px solid #ededed;
   background-color: #fff;
@@ -120,11 +123,11 @@
   text-align: left;
 }
 
-.txt-blk{
+.txt-blk {
   color: #000;
 }
 
-.bold-lighter{
+.bold-lighter {
   font-weight: 400;
   font-size: 16px;
   font-family: initial;
