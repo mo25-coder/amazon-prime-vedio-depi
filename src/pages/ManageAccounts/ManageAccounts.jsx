@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../assets/css/ManageAccounts/ManageAccounts.css";
+import { Link } from "react-router-dom";
 
 const ManageAccounts = () => {
   const navigate = useNavigate();
@@ -40,7 +41,11 @@ const ManageAccounts = () => {
         </div>
 
         {/* Edit Profile Button */}
-        <button className="edit-profile">Edit profile</button>
+        <button className="edit-profile">
+          <Link Link to="/AccountAndSettings" className="editProfileLinkBtn">
+            Edit profile
+          </Link>
+        </button>
       </div>
 
       {/* Footer Section */}

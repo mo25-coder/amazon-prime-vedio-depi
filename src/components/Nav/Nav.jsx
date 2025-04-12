@@ -13,9 +13,7 @@ export default function Navbar() {
   const [myStuffOpen, setMyStuffOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   let menuRef = useRef();
   let userRef = useRef();
   let myStuffRef = useRef();
@@ -26,10 +24,12 @@ export default function Navbar() {
     "Documentary",
     "Drama",
     "Horror",
-    "Science Fiction",
-    "Thriller",
+    "Family",
+    "Kids",
+    "Mystery",
+    "Thrillers",
     "Romance",
-    "Animation",
+    "SciFi",
   ];
   const handleHover = () => {
     setIsOpen(true);
@@ -54,15 +54,6 @@ export default function Navbar() {
       setSearchOpen(false);
     }
   };
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setIsLoggedIn(false);
-  };
-
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    setIsLoggedIn(!!user);
-  }, []);
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutsideUser);
@@ -77,18 +68,14 @@ export default function Navbar() {
     };
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+  };
   useEffect(() => {
-    let handler = (event) => {
-      if (!menuRef.current.contains(event.target)) {
-        setMenuOpen(true);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
-  });
+    const user = localStorage.getItem("user");
+    setIsLoggedIn(!!user);
+  }, []);
 
   /*
   ================================
@@ -106,6 +93,20 @@ export default function Navbar() {
     //   document.removeEventListener("click", handleClickOutside);
     // };
 //   }, []);
+
+  // useEffect(() => {
+  //   let handler = (event) => {
+  //     if (!menuRef.current.contains(event.target)) {
+  //       setMenuOpen(true);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handler);
+
+  //   return () => {
+  //     document.removeEventListener("mousedown", handler);
+  //   };
+  // });
+  
   return (
     <nav className="navbar">
       <div className="brand">Brand</div>
@@ -152,6 +153,8 @@ export default App;
                     className="userMenu"
                     onMouseLeave={() => setIsOpen(false)}
                   >
+                    <div>Your Account</div>
+
                     <ul className="userMenuLst">
                       <DropdownItem text={"Sign in"} path="/LogIn" />
                       <DropdownItem text={"Register"} path="/SignUp" />
@@ -212,17 +215,30 @@ export default App;
                     className={`navbarDropMenu ${
                       menuOpen ? "active" : "inactive"
                     }`}
-                    //   onMouseLeave={() => setMenuOpen(false)}
+                    onMouseLeave={() => setMenuOpen(false)}
                   >
-                    <div>Genre</div>
+                    <div>
+                      Genre{" "}
+                      <Link
+                        to="/HomePage"
+                        class="navbar__linkMobile navbar__link navbarLstHome"
+                      >
+                        <span>Home</span>
+                      </Link>{" "}
+                    </div>
                     <ul>
-                      {categoryTypes.map((cat) => (
-                        <DropdownItem
-                          key={cat}
-                          text={cat}
-                          path={`/category/${cat}`}
-                        />
-                      ))}
+                      <DropdownItem text={"Action"} />
+                      <DropdownItem text={"Adventure"} />
+                      <DropdownItem text={"Comedy"} />
+                      <DropdownItem text={"Documentary"} />
+                      <DropdownItem text={"Drama"} path="/Category/Drama" />
+                      <DropdownItem text={"Horror"} />
+                      <DropdownItem text={"Family"} />
+                      <DropdownItem text={"Kids"} />
+                      <DropdownItem text={"Mystery"} />
+                      <DropdownItem text={"Thrillers"} />
+                      <DropdownItem text={"Romance"} />
+                      <DropdownItem text={"SciFi"} />
                     </ul>
                   </div>
                 )}
@@ -235,7 +251,7 @@ export default App;
                 {myStuffOpen && (
                   <div
                     className="myStuffMenu"
-                    //   onMouseLeave={() => setMyStuffOpen(false)}
+                    onMouseLeave={() => setMyStuffOpen(false)}
                   >
                     <div>My Stuff</div>
                     <ul className="myStuffMenuLst">
@@ -253,8 +269,10 @@ export default App;
                 {isOpen && (
                   <div
                     className="userMenu"
-                    // onMouseLeave={() => setIsOpen(false)}
+                    onMouseLeave={() => setIsOpen(false)}
                   >
+                    {" "}
+                    <div>Your Account</div>
                     <ul className="userMenuLst">
                       <DropdownItem
                         text={"Account Settings"}
@@ -285,9 +303,7 @@ function DropdownItem(props) {
   return (
     <li>
       <Link to={props.path} className="navbar__link">
-        {/* <a href="#" className="navbar__link"> */}
         <span>{props.text}</span>
-        {/* </a> */}
       </Link>
     </li>
   );
