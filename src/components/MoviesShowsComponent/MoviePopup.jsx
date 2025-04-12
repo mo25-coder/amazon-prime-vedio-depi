@@ -15,7 +15,7 @@ const StyledMoviePopup = styled.div`
   overflow: visible;
   position: relative;
   transform-style: preserve-3d;
-  z-index: 10;
+  z-index: 9999;
 
   .movie-details {
     display: none;
