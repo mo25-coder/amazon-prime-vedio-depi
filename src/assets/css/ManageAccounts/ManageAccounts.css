@@ -95,6 +95,8 @@
 
 /* Edit profile button */
 .edit-profile {
+  transition: 0.5s ease-in-out;
+
   padding: 10px 20px;
   font-size: 16px;
   background-color: transparent;
@@ -105,6 +107,8 @@
 }
 
 .edit-profile:hover {
+  transition: 0.5s ease-in-out;
+
   background-color: #2a2e35;
 }
 
@@ -132,4 +136,22 @@ footer {
 
 footer p {
   margin: 0;
+}
+
+.editProfileLinkBtn {
+  transition: 0.5s ease-in-out;
+  color: #fff;
+  text-decoration: none;
+  font-size: var(--font-size-primary);
+  font-weight: 600;
+  margin-left: 5px;
+  padding: 15px 20px;
+  border-radius: 10px;
+}
+.editProfileLinkBtn:hover {
+  transition: 0.5s ease-in-out;
+  /* color: var(--primary-bg-color); */
+  /* background-color: var(--bg-hover-color); */
+  text-shadow: 0 0 20px #ffffff;
+  border-radius: 10px;
 }
