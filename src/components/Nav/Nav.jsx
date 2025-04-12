@@ -24,12 +24,9 @@ export default function Navbar() {
     "Documentary",
     "Drama",
     "Horror",
-    "Family",
-    "Kids",
-    "Mystery",
-    "Thrillers",
+    "Thriller",
     "Romance",
-    "SciFi",
+    "Science Fiction",
   ];
   const handleHover = () => {
     setIsOpen(true);
@@ -227,18 +224,9 @@ export default App;
                       </Link>{" "}
                     </div>
                     <ul>
-                      <DropdownItem text={"Action"} />
-                      <DropdownItem text={"Adventure"} />
-                      <DropdownItem text={"Comedy"} />
-                      <DropdownItem text={"Documentary"} />
-                      <DropdownItem text={"Drama"} path="/Category/Drama" />
-                      <DropdownItem text={"Horror"} />
-                      <DropdownItem text={"Family"} />
-                      <DropdownItem text={"Kids"} />
-                      <DropdownItem text={"Mystery"} />
-                      <DropdownItem text={"Thrillers"} />
-                      <DropdownItem text={"Romance"} />
-                      <DropdownItem text={"SciFi"} />
+                      {categoryTypes.map((s) => (
+                        <DropdownItem text={s} path={`/category/${s}`} />
+                      ))}
                     </ul>
                   </div>
                 )}
