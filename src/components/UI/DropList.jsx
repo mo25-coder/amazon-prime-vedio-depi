@@ -62,7 +62,7 @@ const UL = styled.ul`
   }
 `;
 
-function DropList({ bgcolor, listItems }) {
+function DropList({ bgcolor, listItems, setCheckList, checkList }) {
   const [isClicked, setIsClicked] = useState(false);
   return (
     <Container>
@@ -77,7 +77,18 @@ function DropList({ bgcolor, listItems }) {
         {listItems.map((li) => {
           return (
             <li key={li}>
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                value={li}
+                onClick={(e) => {
+                  let sr = checkList.map((ch) =>
+                    ch.category === e.target.value
+                      ? { ...ch, checked: e.target.checked }
+                      : ch
+                  );
+                  setCheckList([...sr]);
+                }}
+              />
               <label>{li}</label>
             </li>
           );

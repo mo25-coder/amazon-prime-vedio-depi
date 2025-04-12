@@ -26,12 +26,10 @@ export default function Navbar() {
     "Documentary",
     "Drama",
     "Horror",
-    "Family",
-    "Kids",
-    "Mystery",
-    "Thrillers",
+    "Science Fiction",
+    "Thriller",
     "Romance",
-    "SciFi",
+    "Animation",
   ];
   const handleHover = () => {
     setIsOpen(true);
